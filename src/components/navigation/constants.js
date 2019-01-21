@@ -1,0 +1,2 @@
+export const SET_SIDEBAR_STATUS = 'SET_SIDEBAR_STATUS';
+export const SET_ACTIVE_MENU = 'SET_ACTIVE_MENU';

@@ -1,0 +1,60 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "allowImportExportEverywhere": true
+  },
+  "plugins": [
+    "prettier",
+    "react"
+  ],
+  "globals": {
+    "Package": true,
+    "$": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+
+    "prettier/prettier": [
+      "warn",
+      {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "printWidth": 100,
+        "tabWidth": 2,
+        "arrowParens": "always",
+        "bracketSpacing": true,
+        "htmlWhitespaceSensitivity": "css",
+        "jsxBracketSameLine": false,
+        "parser": "babylon",
+        "proseWrap": "preserve",
+        "requirePragma": false,
+        "semi": true,
+        "useTabs": false
+      }
+
+    ],
+    // "operator-linebreak": ["error", "before", { "overrides": { "=": "after" } }],
+    "no-case-declarations":0,
+    "react/prop-types": 0,
+    "react/no-direct-mutation-state": 0,
+    "react/no-find-dom-node": 0,
+    "no-console" : 0,
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "varsIgnorePattern": "^_"
+      }
+    ]
+  }
+}
