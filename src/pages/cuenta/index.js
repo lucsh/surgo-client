@@ -1,218 +1,49 @@
 import React, { Component } from 'react';
-import { ME_DATA, UPDATE_ME } from './constants';
-import { Box, Button, Form, FormField } from 'grommet/es6';
-import { Query, Mutation } from 'react-apollo';
-
+import { Box, Tabs } from 'grommet/es6';
+import Tab from '../../components/tab'
 import { i, l } from '../../utils/log';
 
-import ErrorComponent from '../../components/error';
-import DniMaskedInput from '../../components/editMe/dniMaskedInput';
-import EmailMaskedInput from '../../components/editMe/emailMaskedInput';
-import CheckBox from '../../components/checkBox';
-import TextInput from '../../components/textInput';
-import FechaNacimientoMaskedInput from '../../components/editMe/fechaNacimientoMaskedInput';
-import GroupedButtonsSelect from '../../components/groupedButtonsSelect';
-import GeneroSelect from '../../components/editMe/generoSelect';
+import Personales from './personales';
+import Educacion from './educacion';
+import Laborales from './laborales';
 
 class Index extends Component {
+  state = {
+    index: 0,
+  };
+
+  onActive = (index) => this.setState({ index });
+
   render() {
-    // ToDo : agregar animacion, al menos en el boton, que indique la carga del update de datos
     i('[RENDER : CUENTA]');
     l(this.state, 'state', this);
     l(this.props, 'props', this);
+    const { index } = this.state;
 
-    const saveEdit = (value, editMe, idUser) => {
-      console.log(value);
-      console.log(editMe);
-      console.log(this);
-      console.log('Submit', value);
-      console.log(idUser);
-      const data = {
-        nombre: value.nombre,
-        apellido: value.apellido,
-
-        genero: value.genero.select,
-        generoMas: value.genero.otro,
-
-        paisOrigen: value.paisOrigen,
-        fechaNacimiento: value.fechaNacimiento,
-        educacionMax: value.educacionMax,
-        profesion: value.profesion,
-        telefono: value.telefono,
-
-        dni: value.dniCuil.dni,
-        cuil: value.dniCuil.cuil,
-
-        tieneLicencia: value.tieneLicencia.checked,
-      };
-      editMe({ variables: { data, idUser }, refetchQueries: [{ query: ME_DATA }] });
-    };
+    // ToDo: Agregar campos de dirección
+    // ToDo: Agregar campo de estado civil
+    // ToDo: Agregar campo cantidad de hijos
+    // ToDo: Agregar campo para subir foto
+    // ToDo: El dato de nivel de estudio debería ser dinamico desde la tabla `user_educacion`
 
     return (
-      <Query query={ME_DATA}>
-        {(respuesta) => {
-          if (respuesta.loading) return <p>Cargando...</p>;
-          if (respuesta.data && respuesta.data.meData === null) {
-            return <ErrorComponent />;
-          }
-          if (!respuesta.error) {
-            l(respuesta.data.meData, 'me data');
-            const { meData } = respuesta.data;
-            // this.setState({ meData });
-            return (
-              <Mutation mutation={UPDATE_ME}>
-                {(editMe, { loading, error, data }) => (
-                  <Box align="start" direction={'row-responsive'} gap={'large'} pad={'large'}>
-                    <Form
-                      onSubmit={({ value }) => saveEdit(value, editMe, meData.idUser)}
-                      value={{
-                        apellido: meData.apellido,
-                        nombre: meData.nombre,
-                        dniCuil: {
-                          dni: meData.dni,
-                          cuil: meData.cuil,
-                        },
-                        email: meData.email,
-                        educacionMax: meData.educacionMax,
-                        fechaNacimiento: meData.fechaNacimiento,
-                        genero: {
-                          select: meData.genero,
-                          otro: meData.generoMas,
-                        },
-                        paisOrigen: meData.paisOrigen,
-                        profesion: meData.profesion,
-                        telefono: meData.telefono,
-                        tieneLicencia: { checked: meData.tieneLicencia },
-                      }}
-                    >
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          label="APELLIDO"
-                          name="apellido"
-                          required
-                          validate={{ regexp: /^[a-z]/i }}
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={TextInput}
-                        />
-
-                        <FormField
-                          label="NOMBRE"
-                          name="nombre"
-                          required
-                          validate={{ regexp: /^[a-z]/i }}
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={TextInput}
-                        />
-                      </Box>
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          size={'small'}
-                          label="PAIS ORIGEN"
-                          name="paisOrigen"
-                          required
-                          validate={{ regexp: /^[a-z]/i }}
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={TextInput}
-                        />
-                      </Box>
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          size={'small'}
-                          label="GENERO"
-                          name="genero"
-                          options={['Masculino', 'Femenino', 'Otro']}
-                          // required
-                          component={GeneroSelect}
-                        />
-                      </Box>
-                      <Box align="start" direction={'row-responsive'} gap={'large'} responsive>
-                        <FormField
-                          size={'small'}
-                          label="FECHA DE NACIMIENTO"
-                          name="fechaNacimiento"
-                          required
-                          bounds={['1918-12-31', '2010-12-31']}
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={FechaNacimientoMaskedInput}
-                        />
-                        <FormField
-                          size={'small'}
-                          name="dniCuil"
-                          component={DniMaskedInput}
-                          responsive
-                        />
-                      </Box>
-
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          size={'small'}
-                          label="PROFESION"
-                          name="profesion"
-                          required
-                          validate={{ regexp: /^[a-z]/i }}
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={TextInput}
-                        />
-                        <FormField
-                          size={'small'}
-                          label={'POSEE LICENCIA?'}
-                          etiqueta="LICENCIA DE CONDUCIR"
-                          name="tieneLicencia"
-                          toggle
-                          component={CheckBox}
-                        />
-                      </Box>
-
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          size={'small'}
-                          label="EMAIL"
-                          name="email"
-                          value={meData.email} // not editable
-                          required
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={EmailMaskedInput}
-                        />
-
-                        <FormField
-                          size={'small'}
-                          label="TELEFONO"
-                          name="telefono"
-                          required
-                          borderBottom
-                          validate={{ regexp: /^[0-9]/i }}
-                          component={TextInput}
-                        />
-                      </Box>
-
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          size={'small'}
-                          label="NIVEL DE ESTUDIO"
-                          name="educacionMax"
-                          options={['Primario', 'Secundario', 'Terciario', 'Universitario']}
-                          required
-                          component={GroupedButtonsSelect}
-                          plain
-                        />
-                      </Box>
-
-                      <Box
-                        direction="row"
-                        justify="end"
-                        margin={{ top: 'medium', bottom: 'meddium' }}
-                      >
-                        <Button type="submit" label="Actualizar Datos" primary />
-                      </Box>
-                    </Form>
-                  </Box>
-                )}
-              </Mutation>
-            );
-          }
-          return null;
-        }}
-      </Query>
+      <Tabs align="center" justify={'center'} flex={'grow'} activeIndex={index} onActive={this.onActive}>
+        <Tab title="Datos Personales" tabContents={'ggwp'}>
+          <Box margin="small" pad="medium" align="center">
+            <Personales />
+          </Box>
+        </Tab>
+        <Tab title="Educación">
+          <Box margin="small" pad="medium" align="center">
+            <Educacion />
+          </Box>
+        </Tab>
+        <Tab title="Laboral">
+          <Box margin="small" pad="medium" align="center">
+            <Laborales />
+          </Box>
+        </Tab>
+      </Tabs>
     );
   }
 }

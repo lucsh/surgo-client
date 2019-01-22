@@ -43,9 +43,9 @@ class UsuarioDropMenu extends Component {
       label = data.me.email;
     }
 
-    // if (data && data.me.firstName) {
-    //   label = data.me.firstName;
-    // }
+    if (data && data.me.nombre) {
+      label = `¡Hola ${data.me.nombre}!`;
+    }
 
     return <Menu align="center" label={label} items={itemsMenu} />;
   }

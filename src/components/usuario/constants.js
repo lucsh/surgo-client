@@ -4,6 +4,7 @@ export const ME_QUERY = gql`
   query {
     me {
       email
+      nombre
     }
   }
 `;
