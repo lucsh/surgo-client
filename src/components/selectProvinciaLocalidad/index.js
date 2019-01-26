@@ -24,6 +24,7 @@ class Input extends Component {
   onChange = (e) => {
     let value = e.target.value;
     console.log('valor: ', value);
+    // TODO cambiar aca
     this.props.onChange({ target: { value } });
     this.setState({
       value,
@@ -31,6 +32,7 @@ class Input extends Component {
   };
 
   render() {
+    const { provincia, localidad } = this.props.value;
     return (
       <Query query={PROVINCIAS}>
         {({ loading, error, data }) => {
@@ -44,9 +46,11 @@ class Input extends Component {
             return (
               <Select
                 size={this.props.size}
-                valueKey={`${this.state.value.id}`}
+                valueKey="id"
+                labelKey="nombre"
                 options={data.provincias}
                 onChange={this.onChange}
+                value={provincia}
                 plain
               />
             );

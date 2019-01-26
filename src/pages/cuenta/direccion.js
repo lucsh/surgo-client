@@ -7,8 +7,7 @@ import { i, l } from '../../utils/log';
 
 import ErrorComponent from '../../components/error';
 import TextInput from '../../components/textInput';
-import SelectProvincia from '../../components/selectProvincia';
-import SelectLocalidad from '../../components/selectLocalidad';
+import SelectProvinciaLocalidad from '../../components/selectProvinciaLocalidad';
 
 class Personales extends Component {
   render() {
@@ -46,14 +45,16 @@ class Personales extends Component {
                         calle: address.calle,
                         numero: address.numero,
                         observaciones: address.observaciones,
-                        localidad: {
-                          id: address.localidad.id,
-                          nombre: address.localidad.nombre,
-                          codigoPostal: address.localidad.codigoPostal,
-                        },
-                        provincia: {
-                          id: address.provincia.id,
-                          nombre: address.provincia.nombre,
+                        provinciaLocalidad: {
+                          localidad: {
+                            id: address.localidad.id,
+                            nombre: address.localidad.nombre,
+                            codigoPostal: address.localidad.codigoPostal,
+                          },
+                          provincia: {
+                            id: address.provincia.id,
+                            nombre: address.provincia.nombre,
+                          },
                         },
                       }}
                     >
@@ -103,10 +104,8 @@ class Personales extends Component {
                         <FormField
                           fill="horizontal"
                           label="PROVINCIA"
-                          name="provincia"
-                          // required
-                          // options={provincias}
-                          component={SelectProvincia}
+                          name="provinciaLocalidad"
+                          component={SelectProvinciaLocalidad}
                         />
                       </Box>
                       {error && <ErrorComponent error={error} />}
