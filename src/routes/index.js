@@ -24,7 +24,8 @@ import { i } from '../utils/log';
 
 class Routes extends React.Component {
   render() {
-    const { isLoggedIn } = this.props;
+    const { isLoggedIn, user } = this.props;
+
     // console.log({isLoggedIn});
     i('[EVENT] ROUTER');
 
@@ -44,7 +45,7 @@ class Routes extends React.Component {
             render={(props) => <Verify {...props} isLoggedIn={isLoggedIn} />}
           />
           <AuthRoute isLoggedIn={isLoggedIn} path={DASHBOARD_PATH} component={General} />
-          <AuthRoute isLoggedIn={isLoggedIn} path={CUENTA_PATH} component={Cuenta} />
+          <AuthRoute isLoggedIn={isLoggedIn} path={CUENTA_PATH} component={Cuenta} user={user} />
 
           <Route exact component={NoMatch} />
         </Switch>

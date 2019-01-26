@@ -13,6 +13,8 @@ import TextInput from '../../components/textInput';
 import FechaNacimientoMaskedInput from '../../components/editMe/fechaNacimientoMaskedInput';
 import GroupedButtonsSelect from '../../components/groupedButtonsSelect';
 import GeneroSelect from '../../components/editMe/generoSelect';
+import LoadingButton from '../../components/loadingButton'
+import Notificacion from '../../components/notificacion'
 
 class Laborales extends Component {
   render() {
@@ -56,7 +58,7 @@ class Laborales extends Component {
             // this.setState({ meData });
             return (
               <Mutation mutation={UPDATE_ME}>
-                {(editMe, { loading, error, data }) => (
+                {(editMe, { loading, error }) => (
                   <Box align="start" direction={'row-responsive'} gap={'large'} pad={'large'}>
                     <Form
                       onSubmit={({ value }) => saveEdit(value, editMe, meData.idUser)}
@@ -197,8 +199,15 @@ class Laborales extends Component {
                         justify="end"
                         margin={{ top: 'medium', bottom: 'meddium' }}
                       >
-                        <Button type="submit" label="Actualizar Datos" primary />
+                        <LoadingButton
+                          type="submit"
+                          reverse
+                          loading={loading}
+                          primary
+                          label={'Actualizar Datos'}
+                        />
                       </Box>
+                      {error && <ErrorComponent error={error} />}
                     </Form>
                   </Box>
                 )}

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { ME_DATA, UPDATE_ME } from './constants';
-import { Box, Button, Form, FormField } from 'grommet/es6';
+import { Box, Form, FormField } from 'grommet/es6';
 import { Query, Mutation } from 'react-apollo';
 
 import { i, l } from '../../utils/log';
 
 import ErrorComponent from '../../components/error';
+import LoadingButton from '../../components/loadingButton';
 import DniMaskedInput from '../../components/editMe/dniMaskedInput';
 import EmailMaskedInput from '../../components/editMe/emailMaskedInput';
 import CheckBox from '../../components/checkBox';
@@ -16,15 +17,15 @@ import GeneroSelect from '../../components/editMe/generoSelect';
 
 class Personales extends Component {
   render() {
-    // ToDo : agregar animacion, al menos en el boton, que indique la carga del update de datos
     i('[RENDER : PERSONALES]');
-    l(this.state, 'state', this);
-    l(this.props, 'props', this);
 
     const saveEdit = (value, editMe, idUser) => {
       const data = {
         nombre: value.nombre,
         apellido: value.apellido,
+
+        estadoCivil: value.estadoCivil,
+        hijos: value.hijos,
 
         genero: value.genero.select,
         generoMas: value.genero.otro,
@@ -56,7 +57,7 @@ class Personales extends Component {
             // this.setState({ meData });
             return (
               <Mutation mutation={UPDATE_ME}>
-                {(editMe, { loading, error, data }) => (
+                {(editMe, { loading, error }) => (
                   <Box align="start" direction={'row-responsive'} gap={'large'} pad={'large'}>
                     <Form
                       onSubmit={({ value }) => saveEdit(value, editMe, meData.idUser)}
@@ -67,6 +68,10 @@ class Personales extends Component {
                           dni: meData.dni,
                           cuil: meData.cuil,
                         },
+
+                        estadoCivil: meData.estadoCivil,
+                        hijos: meData.hijos,
+
                         email: meData.email,
                         educacionMax: meData.educacionMax,
                         fechaNacimiento: meData.fechaNacimiento,
@@ -106,6 +111,27 @@ class Personales extends Component {
                           name="paisOrigen"
                           required
                           validate={{ regexp: /^[a-z]/i }}
+                          style={{ borderBottom: 'solid 1px #888888' }}
+                          component={TextInput}
+                        />
+                      </Box>
+                      <Box align="start" direction={'row-responsive'} gap={'large'}>
+                        <FormField
+                          size={'small'}
+                          label="ESTADO CIVIL"
+                          name="estadoCivil"
+                          options={['Casado', 'Soltero', 'Viudo', 'Divorciado']}
+                          required
+                          component={GroupedButtonsSelect}
+                          plain
+                        />
+                        <FormField
+                          size={'small'}
+                          label="HIJOS"
+                          name="hijos"
+                          required
+                          numeric
+                          validate={{ regexp: /^[0-9]/i }}
                           style={{ borderBottom: 'solid 1px #888888' }}
                           component={TextInput}
                         />
@@ -170,6 +196,7 @@ class Personales extends Component {
                         />
 
                         <FormField
+                          // error="string | React.ReactNode"
                           size={'small'}
                           label="TELEFONO"
                           name="telefono"
@@ -197,8 +224,15 @@ class Personales extends Component {
                         justify="end"
                         margin={{ top: 'medium', bottom: 'meddium' }}
                       >
-                        <Button type="submit" label="Actualizar Datos" primary />
+                        <LoadingButton
+                          type="submit"
+                          reverse
+                          loading={loading}
+                          primary
+                          label={'Actualizar Datos'}
+                        />
                       </Box>
+                      {error && <ErrorComponent error={error} />}
                     </Form>
                   </Box>
                 )}

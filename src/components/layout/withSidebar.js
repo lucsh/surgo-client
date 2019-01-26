@@ -7,6 +7,7 @@ import theme from '../../utils/theme';
 
 // Common Components
 import Header from '../navigation/header';
+import Sidebar from '../navigation/sidebar';
 import Notificacion from '../notificacion';
 
 // Redux
@@ -20,7 +21,7 @@ import { ME_QUERY } from './constants';
 import { i, l } from '../../utils/log';
 import { Query } from 'react-apollo';
 
-const SIDEBAR = false;
+const SIDEBAR = true;
 
 class Layout extends Component {
   constructor(props) {
@@ -39,6 +40,13 @@ class Layout extends Component {
   render() {
     i('LAYOUT');
     l(this.props, 'props', this);
+    const { showSidebar } = this.props;
+
+    let SidebarComponent;
+    let HeaderComponent;
+
+    HeaderComponent = <Header setSidebar={this.setSidebar} />;
+    SidebarComponent = showSidebar && <Sidebar />;
 
     // Grid
     // 0-1
@@ -47,11 +55,11 @@ class Layout extends Component {
       <Grommet theme={theme} style={{ margin: '0 auto' }}>
         <Notificacion />
         <Grid
-          alignSelf="center"
           rows={['auto', 'medium']}
           columns={['auto', 'flex']}
           areas={[
             { name: 'header', start: [0, 0], end: [1, 0] },
+            { name: 'sidebar', start: [0, 1], end: [0, 1] },
             { name: 'main', start: [1, 1], end: [1, 1] },
           ]}
         >
@@ -72,9 +80,10 @@ class Layout extends Component {
               if (!respuesta.error) {
                 return (
                   <Fragment>
-                    <Header gridArea="header" user={respuesta.data.me} />
-                    <Box gridArea="main" justify="start" align="center" full="true">
-                      <Routes isLoggedIn={true} user={respuesta.data.me}  />
+                    {HeaderComponent}
+                    {SidebarComponent}
+                    <Box gridArea="main" justify="start" align="start" full="true">
+                      <Routes isLoggedIn={true} />
                     </Box>
                   </Fragment>
                 );

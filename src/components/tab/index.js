@@ -10,7 +10,6 @@ class CustomTab extends Component {
     const { active } = this.props;
     let styles = {
       padding: '10px 15px',
-      // paddingBottom: '15px',
       borderRadius: 0,
       borderBottom: `solid 1px ${BLACK_COLOR}`,
     };

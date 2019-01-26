@@ -8,7 +8,7 @@ import { SET_SIDEBAR_STATUS, SET_ACTIVE_MENU } from './constants';
 const location = history.location.pathname || DASHBOARD_PATH;
 
 const initialState = {
-  showSidebar: true,
+  showSidebar: false,
   activeMenu: location,
 };
 

@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
+import { Menu } from 'grommet-icons';
 import React, { Component } from 'react';
-import { Box, Text, ResponsiveContext } from 'grommet';
-import Logo from '../../logo';
-
+import { Box, Button, Text, ResponsiveContext } from 'grommet';
 // Redux
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -12,7 +11,6 @@ import { CLIENT } from '../../../constants/a11y';
 
 // Components
 import DropMenu from './dropMenu';
-import Navigation from './navigation';
 import theme from '../../../utils/theme';
 
 const COLOR = theme.global.colors['brand'];
@@ -21,6 +19,7 @@ class Header extends Component {
   render() {
     const { user } = this.props;
     // burger status color
+    const color = this.props.showSidebar ? COLOR : 'black';
 
     return (
       <Box
@@ -32,8 +31,11 @@ class Header extends Component {
         margin={{ bottom: 'xsmall' }}
         pad="none"
       >
-        <Box direction="row" align="center" pad="small">
-                <Navigation />
+        <Box direction="row" align="center" pad="none">
+          <Button onClick={() => this.props.setSidebarStatus()} icon={<Menu color={color} />} />
+          <ResponsiveContext.Consumer>
+            {(size) => <Box>{size !== 'small' && <Text>{`${CLIENT}`}</Text>}</Box>}
+          </ResponsiveContext.Consumer>
         </Box>
 
         <Text alignSelf="end">

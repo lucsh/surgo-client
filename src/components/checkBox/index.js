@@ -12,7 +12,13 @@ class Index extends Component {
     };
     return (
       <Box direction="row" align="center" gap="xsmall" pad={'xsmall'}>
-        <CheckBox {...this.props} checked={this.props.value.checked} onChange={onChange} label={''} style={{ borderBottom: 'none' }} />
+        <CheckBox
+          {...this.props}
+          checked={this.props.value.checked}
+          onChange={onChange}
+          label={''}
+          style={{ borderBottom: 'none' }}
+        />
         <Text size={'xsmall'}>{this.props.etiqueta}</Text>
       </Box>
     );

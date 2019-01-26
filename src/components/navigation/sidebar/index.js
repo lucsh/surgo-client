@@ -16,6 +16,7 @@ import { GENERAL } from '../a11y';
 
 class Sidebar extends Component {
   goto(place) {
+    this.props.setActiveMenu(place);
     history.push(place);
   }
 

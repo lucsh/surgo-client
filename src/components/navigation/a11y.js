@@ -1,8 +1,6 @@
-export const GENERAL = 'general';
-export const PERSONAL = 'personal';
-export const CARGAS = 'cargas';
-export const CONFIGURACION = 'configuración';
-export const CUENTA = 'cuenta';
-export const ANONIMO = 'anonimo';
-export const LOGIN = 'ingresar';
-export const SALIR = 'salir';
+export const GENERAL = 'General';
+export const CONFIGURACION = 'Configuración';
+export const CUENTA = 'Cuenta';
+export const ANONIMO = 'Anonimo';
+export const LOGIN = 'Ingresar';
+export const SALIR = 'Salir';

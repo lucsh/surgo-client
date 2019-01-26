@@ -20,7 +20,7 @@ class UsuarioDropMenu extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { user } = this.props;
     let label = ANONIMO;
     let itemsMenu = [
       {
@@ -39,12 +39,12 @@ class UsuarioDropMenu extends Component {
         },
       },
     ];
-    if (data && data.me.email) {
-      label = data.me.email;
+    if (user && user.email) {
+      label = user.email;
     }
 
-    if (data && data.me.nombre) {
-      label = `¡Hola ${data.me.nombre}!`;
+    if (user && user.nombre) {
+      label = user.nombre;
     }
 
     return <Menu align="center" label={label} items={itemsMenu} />;

@@ -14,13 +14,14 @@ class AuthRoute extends React.Component {
   }
 
   safeRender(props) {
-    const { component: Component, isLoggedIn } = this.props;
+    const { component: Component, isLoggedIn, user } = this.props;
     i('[SAFE RENDER]');
     console.log({ isLoggedIn });
+    console.log({ user });
 
     if (isLoggedIn) {
       i('isLoggedIn');
-      return <Component {...props} />;
+      return <Component {...props} user={user} />;
     } else {
       i('!isLoggedIn');
       return <Redirect to={{ pathname: LOGIN_PATH }} />;
@@ -28,8 +29,8 @@ class AuthRoute extends React.Component {
   }
 
   render() {
-    const { component: Component, ...rest } = this.props;
-    return <Route {...rest} render={this.safeRender} />;
+    const { ...rest } = this.props;
+    return <Route render={this.safeRender} />;
   }
 }
 

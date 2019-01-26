@@ -1,4 +1,4 @@
-import { TextInput } from 'grommet/es6';
+import { Select } from 'grommet/es6';
 import React, { Component } from 'react';
 
 class Input extends Component {
@@ -46,7 +46,7 @@ class Input extends Component {
     }
 
     return (
-      <TextInput
+      <Select
         size={this.props.size}
         style={{ ...styles }}
         type={type}
