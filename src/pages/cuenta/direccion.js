@@ -85,13 +85,13 @@ class Personales extends Component {
                         gap={'large'}
                       >
                         <FormField
-                          size={'xlarge'}
                           fill="horizontal"
                           label="OBSERVACIONES"
                           name="observaciones"
                           required
                           validate={{ regexp: /^[a-z]/i }}
                           style={{ borderBottom: 'solid 1px #888888' }}
+                          placeholder={'Sin Observaciones'}
                           component={TextInput}
                         />
                       </Box>
@@ -103,7 +103,7 @@ class Personales extends Component {
                       >
                         <FormField
                           fill="horizontal"
-                          label="PROVINCIA"
+                          label="PROVINCIA Y LOCALIDAD"
                           name="provinciaLocalidad"
                           component={SelectProvinciaLocalidad}
                         />

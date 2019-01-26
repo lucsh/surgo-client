@@ -48,6 +48,7 @@ class Input extends Component {
     return (
       <TextInput
         size={this.props.size}
+        placeholder={this.props.placeholder}
         style={{ ...styles }}
         type={type}
         value={`${this.state.value}`}

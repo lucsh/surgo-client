@@ -1,10 +1,8 @@
 import { Box, Select, Text } from 'grommet/es6';
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
-import { PROVINCIAS } from '../../pages/cuenta/constants';
-import { l } from '../../utils/log';
-import { ME_QUERY } from '../usuario/constants';
-import { Q_USUARIO } from '../usuario/a11y';
+import { PROVINCIAS, LOCALIDADES } from '../../pages/cuenta/constants';
+import { Q_GENERIC } from '../usuario/a11y';
 import ErrorComponent from '../error';
 
 class Input extends Component {
@@ -35,24 +33,57 @@ class Input extends Component {
     const { provincia, localidad } = this.props.value;
     return (
       <Query query={PROVINCIAS}>
-        {({ loading, error, data }) => {
-          if (loading) {
-            return <Text a11yTitle={Q_USUARIO}>{Q_USUARIO}</Text>;
+        {(qProvincias) => {
+          if (qProvincias.loading) {
+            return <Text a11yTitle={Q_GENERIC}>{Q_GENERIC}</Text>;
           }
-          if (data && !data.provincias) {
-            return <ErrorComponent error={error} />;
+          if (qProvincias.data && !qProvincias.data.provincias) {
+            return <ErrorComponent error={qProvincias.error} />;
           }
-          if (!error) {
+          if (!qProvincias.error) {
             return (
-              <Select
-                size={this.props.size}
-                valueKey="id"
-                labelKey="nombre"
-                options={data.provincias}
-                onChange={this.onChange}
-                value={provincia}
-                plain
-              />
+              <Query query={LOCALIDADES} variables={{ provincia: provincia.id }}>
+                {(qLocalidades) => {
+                  if (qLocalidades.loading) {
+                    return <Text a11yTitle={Q_GENERIC}>{Q_GENERIC}</Text>;
+                  }
+                  if (qLocalidades.data && !qLocalidades.data.localidades) {
+                    return <ErrorComponent error={qLocalidades.error} />;
+                  }
+                  if (!qLocalidades.error) {
+                    return (
+                      <Box
+                        direction="row"
+                        basis="full"
+                        align="center"
+                        justify="between"
+                        pad="none"
+                        gap={'small'}
+                      >
+                        <Select
+                          size={this.props.size}
+                          valueKey="id"
+                          labelKey="nombre"
+                          options={qProvincias.data.provincias}
+                          onChange={this.onChange}
+                          value={provincia}
+                          plain
+                        />
+                        <Select
+                          size={this.props.size}
+                          valueKey="id"
+                          labelKey="nombre"
+                          options={qLocalidades.data.localidades}
+                          onChange={this.onChange}
+                          value={localidad}
+                          plain
+                        />
+                      </Box>
+                    );
+                  }
+                  return null;
+                }}
+              </Query>
             );
           }
           return null;

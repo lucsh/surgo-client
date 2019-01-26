@@ -50,7 +50,7 @@ export const ME_DIRECCION = gql`
 `;
 
 export const LOCALIDADES = gql`
-  query localidades($provincia: String!) {
+  query localidades($provincia: Int!) {
     localidades(provincia: $provincia) {
       id
       nombre
