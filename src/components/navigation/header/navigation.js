@@ -26,11 +26,7 @@ class Navigation extends Component {
   render() {
     const { activeMenu } = this.props;
     return (
-      <Box
-        direction="row"
-        gridArea="header"
-        animation={[{ type: 'fadeid', duration: 500 }]}
-      >
+      <Box direction="row" gridArea="header">
         <ResponsiveContext.Consumer>
           {(size) => (
             <Box direction="row" pad="none" height={'50px'}>

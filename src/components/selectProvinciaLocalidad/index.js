@@ -1,29 +1,39 @@
-import { Box, Select, Text } from 'grommet/es6';
+import { Box, Text } from 'grommet/es6';
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { PROVINCIAS, LOCALIDADES } from '../../pages/cuenta/constants';
 import { Q_GENERIC } from '../usuario/a11y';
 import ErrorComponent from '../error';
+import SelectWithSearch from '../selectWithSearch';
 
 class Input extends Component {
-  state = {
-    genero: '',
-    otro: '',
-  };
-
-  const;
   componentDidMount() {
     let { value } = this.props;
+    console.log('Select value:', value);
     this.setState({
       value,
     });
   }
 
-  onChange = (e) => {
-    let value = e.target.value;
-    console.log('valor: ', value);
-    // TODO cambiar aca
-    this.props.onChange({ target: { value } });
+  onChangeProvincia = (e) => {
+    console.log(e);
+    let provincia = e.option;
+
+    //limpio la localidad
+    const localidad = {};
+    const value = { localidad, provincia };
+    this.props.onChange({ value });
+    this.setState({
+      value,
+    });
+  };
+
+  onChangeLocalidad = (e) => {
+    console.log(e);
+    let localidad = e.option;
+    const { provincia } = this.state.value;
+    const value = { localidad, provincia };
+    this.props.onChange({ value });
     this.setState({
       value,
     });
@@ -51,6 +61,7 @@ class Input extends Component {
                     return <ErrorComponent error={qLocalidades.error} />;
                   }
                   if (!qLocalidades.error) {
+                    let provincias = qProvincias.data.provincias;
                     return (
                       <Box
                         direction="row"
@@ -60,21 +71,21 @@ class Input extends Component {
                         pad="none"
                         gap={'small'}
                       >
-                        <Select
+                        <SelectWithSearch
                           size={this.props.size}
                           valueKey="id"
                           labelKey="nombre"
-                          options={qProvincias.data.provincias}
-                          onChange={this.onChange}
+                          options={provincias}
+                          onChange={this.onChangeProvincia}
                           value={provincia}
                           plain
                         />
-                        <Select
+                        <SelectWithSearch
                           size={this.props.size}
                           valueKey="id"
                           labelKey="nombre"
                           options={qLocalidades.data.localidades}
-                          onChange={this.onChange}
+                          onChange={this.onChangeLocalidad}
                           value={localidad}
                           plain
                         />

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { i } from '../../utils/log/index';
 
 import { FormField, Button } from 'grommet';
-import TextInput from '../textInput'
+import TextInput from '../textInput';
 
 class Form extends Component {
   state = {

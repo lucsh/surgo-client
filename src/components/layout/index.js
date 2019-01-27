@@ -74,7 +74,7 @@ class Layout extends Component {
                   <Fragment>
                     <Header gridArea="header" user={respuesta.data.me} />
                     <Box gridArea="main" justify="start" align="center" full="true">
-                      <Routes isLoggedIn={true} user={respuesta.data.me}  />
+                      <Routes isLoggedIn={true} user={respuesta.data.me} />
                     </Box>
                   </Fragment>
                 );

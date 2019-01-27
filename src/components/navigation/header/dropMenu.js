@@ -52,7 +52,7 @@ class UsuarioDropMenu extends Component {
 }
 
 UsuarioDropMenu.propTypes = {
-  data: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
   authLogout: PropTypes.func.isRequired,
   setActiveMenu: PropTypes.func.isRequired,
 };

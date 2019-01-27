@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ME_DIRECCION, UPDATE_DIRECCION, LOCALIDADES, PROVINCIAS } from './constants';
-import { Box, Form, FormField, Select } from 'grommet/es6';
+import { ME_DIRECCION, UPDATE_DIRECCION } from './constants';
+import { Box, Form, FormField } from 'grommet/es6';
 import { Query, Mutation } from 'react-apollo';
 
 import { i, l } from '../../utils/log';
@@ -8,24 +8,26 @@ import { i, l } from '../../utils/log';
 import ErrorComponent from '../../components/error';
 import TextInput from '../../components/textInput';
 import SelectProvinciaLocalidad from '../../components/selectProvinciaLocalidad';
+import LoadingButton from '../../components/loadingButton';
 
 class Personales extends Component {
   render() {
     i('[RENDER : DIRECCION]');
-    console.log(this.props);
 
     const saveEdit = (value, editMe, idUser) => {
+      console.log('idUser');
+      console.log(idUser);
       const data = {
         calle: value.calle,
         numero: value.numero,
         observaciones: value.observaciones,
-        idLocalidad: value.idLocalidad,
+        idLocalidad: value.provinciaLocalidad.localidad.id,
       };
       editMe({ variables: { data, idUser }, refetchQueries: [{ query: ME_DIRECCION }] });
     };
-
+    const idUser = this.props.user.id;
     return (
-      <Query query={ME_DIRECCION} variables={{ idUser: this.props.user.id }}>
+      <Query query={ME_DIRECCION} variables={{ idUser }} skip={!idUser}>
         {(respuesta) => {
           if (respuesta.loading) return <p>Cargando...</p>;
           if (respuesta.data && respuesta.data.address === null) {
@@ -40,7 +42,7 @@ class Personales extends Component {
                 {(editMe, { loading, error }) => (
                   <Box align="start" direction={'row-responsive'} gap={'large'} pad={'large'}>
                     <Form
-                      onSubmit={({ value }) => saveEdit(value, editMe, null)}
+                      onSubmit={({ value }) => saveEdit(value, editMe, this.props.user.id)}
                       value={{
                         calle: address.calle,
                         numero: address.numero,
@@ -88,8 +90,6 @@ class Personales extends Component {
                           fill="horizontal"
                           label="OBSERVACIONES"
                           name="observaciones"
-                          required
-                          validate={{ regexp: /^[a-z]/i }}
                           style={{ borderBottom: 'solid 1px #888888' }}
                           placeholder={'Sin Observaciones'}
                           component={TextInput}
@@ -106,6 +106,19 @@ class Personales extends Component {
                           label="PROVINCIA Y LOCALIDAD"
                           name="provinciaLocalidad"
                           component={SelectProvinciaLocalidad}
+                        />
+                      </Box>
+                      <Box
+                        direction="row"
+                        justify="end"
+                        margin={{ top: 'medium', bottom: 'meddium' }}
+                      >
+                        <LoadingButton
+                          type="submit"
+                          reverse
+                          loading={loading}
+                          primary
+                          label={'Actualizar Datos'}
                         />
                       </Box>
                       {error && <ErrorComponent error={error} />}

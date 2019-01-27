@@ -1,21 +1,15 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Box, Text, ResponsiveContext } from 'grommet';
-import Logo from '../../logo';
+import { Box, Text } from 'grommet';
 
 // Redux
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setSidebarStatus } from '../actions';
 
-import { CLIENT } from '../../../constants/a11y';
-
 // Components
 import DropMenu from './dropMenu';
 import Navigation from './navigation';
-import theme from '../../../utils/theme';
-
-const COLOR = theme.global.colors['brand'];
 
 class Header extends Component {
   render() {
@@ -33,7 +27,7 @@ class Header extends Component {
         pad="none"
       >
         <Box direction="row" align="center" pad="small">
-                <Navigation />
+          <Navigation />
         </Box>
 
         <Text alignSelf="end">

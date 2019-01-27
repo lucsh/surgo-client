@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ME_DATA, UPDATE_ME } from './constants';
-import { Box, Button, Form, FormField } from 'grommet/es6';
+import { Box, Form, FormField } from 'grommet/es6';
 import { Query, Mutation } from 'react-apollo';
 
 import { i, l } from '../../utils/log';
@@ -13,8 +13,7 @@ import TextInput from '../../components/textInput';
 import FechaNacimientoMaskedInput from '../../components/editMe/fechaNacimientoMaskedInput';
 import GroupedButtonsSelect from '../../components/groupedButtonsSelect';
 import GeneroSelect from '../../components/editMe/generoSelect';
-import LoadingButton from '../../components/loadingButton'
-import Notificacion from '../../components/notificacion'
+import LoadingButton from '../../components/loadingButton';
 
 class Educacion extends Component {
   render() {

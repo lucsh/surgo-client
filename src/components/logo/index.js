@@ -3,12 +3,7 @@ import logo from './logo.svg';
 
 class LoadingIcon extends Component {
   render() {
-    return (
-      <img
-        width={this.props.width}
-        src={logo}
-      />
-    );
+    return <img width={this.props.width} src={logo} />;
   }
 }
 

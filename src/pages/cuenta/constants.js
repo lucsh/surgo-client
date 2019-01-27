@@ -67,7 +67,7 @@ export const PROVINCIAS = gql`
 `;
 
 export const UPDATE_DIRECCION = gql`
-  mutation updateAddress($data: UserDataInput!, $idUser: String!) {
+  mutation updateAddress($data: DireccionInput!, $idUser: String!) {
     updateAddress(data: $data, idUser: $idUser)
   }
 `;

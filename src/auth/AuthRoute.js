@@ -29,7 +29,7 @@ class AuthRoute extends React.Component {
   }
 
   render() {
-    const { ...rest } = this.props;
+    // const { ...rest } = this.props;
     return <Route render={this.safeRender} />;
   }
 }
