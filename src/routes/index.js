@@ -6,7 +6,8 @@ import AuthRoute from '../auth/AuthRoute';
 import history from '../utils/history';
 
 // Components
-import Login from '../pages/login/index';
+import Login from '../pages/login';
+import Logout from '../pages/logout';
 import Verify from '../pages/verify';
 import Cuenta from '../pages/cuenta';
 import General from '../pages/general';
@@ -15,6 +16,7 @@ import NoMatch from '../components/noMatch';
 // Constants
 import {
   LOGIN_PATH,
+  LOGOUT_PATH,
   VERIFICATION_PATH,
   DASHBOARD_PATH,
   CUENTA_PATH,
@@ -44,6 +46,8 @@ class Routes extends React.Component {
             exact
             render={(props) => <Verify {...props} isLoggedIn={isLoggedIn} />}
           />
+          <Route path={LOGOUT_PATH} component={Logout} />
+
           <AuthRoute isLoggedIn={isLoggedIn} path={DASHBOARD_PATH} component={General} />
           <AuthRoute isLoggedIn={isLoggedIn} path={CUENTA_PATH} component={Cuenta} user={user} />
 

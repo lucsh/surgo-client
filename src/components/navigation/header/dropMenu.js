@@ -9,7 +9,7 @@ import { authLogout } from '../../../actions/auth';
 import { setActiveMenu } from '../actions';
 
 import { SALIR, CUENTA, ANONIMO } from '../a11y';
-import { LOGIN_PATH, CUENTA_PATH } from '../../../constants/BaseConfig';
+import { CUENTA_PATH, LOGOUT_PATH } from '../../../constants/BaseConfig'
 import history from '../../../utils/history';
 import { i } from '../../../utils/log';
 
@@ -27,8 +27,7 @@ class UsuarioDropMenu extends Component {
         label: SALIR,
         onClick: () => {
           i('logout...');
-          this.goto(LOGIN_PATH);
-          this.props.authLogout();
+          this.goto(LOGOUT_PATH);
         },
       },
       {
