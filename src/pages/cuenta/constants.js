@@ -24,6 +24,29 @@ export const ME_DATA = gql`
   }
 `;
 
+export const ME_ESTUDIOS = gql`
+  query studies($idUser: String!) {
+    studies(idUser: $idUser) {
+      id
+      titulo
+      tipo
+      instituto
+      detalle
+      desde
+      hasta
+      duracionTotal
+      duracionUnidad
+      estado
+    }
+  }
+`;
+
+export const UPDATE_ESTUDIO = gql`
+  mutation updateStudies($data: EstudioInput!, $idUser: String!) {
+    updateStudies(data: $data, idUser: $idUser)
+  }
+`;
+
 export const UPDATE_ME = gql`
   mutation updateMe($data: UserDataInput!, $idUser: String!) {
     updateUserData(data: $data, idUser: $idUser)

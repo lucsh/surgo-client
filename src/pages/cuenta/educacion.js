@@ -1,217 +1,54 @@
 import React, { Component } from 'react';
-import { ME_DATA, UPDATE_ME } from './constants';
-import { Box, Form, FormField } from 'grommet/es6';
-import { Query, Mutation } from 'react-apollo';
+import { ME_ESTUDIOS } from './constants';
+import { Query } from 'react-apollo';
 
 import { i, l } from '../../utils/log';
 
 import ErrorComponent from '../../components/error';
-import DniMaskedInput from '../../components/editMe/dniMaskedInput';
-import EmailMaskedInput from '../../components/editMe/emailMaskedInput';
-import CheckBox from '../../components/checkBox';
-import TextInput from '../../components/textInput';
-import FechaNacimientoMaskedInput from '../../components/editMe/fechaNacimientoMaskedInput';
-import GroupedButtonsSelect from '../../components/groupedButtonsSelect';
-import GeneroSelect from '../../components/editMe/generoSelect';
-import LoadingButton from '../../components/loadingButton';
+import Estudio from '../../components/educacion/estudio';
 
-class Educacion extends Component {
+class Personales extends Component {
+  editar = (id) => {
+    console.log('editar', id);
+  };
+
+  eliminar = (id) => {
+    console.log('eliminar', id);
+  };
   render() {
-    // ToDo : agregar animacion, al menos en el boton, que indique la carga del update de datos
     i('[RENDER : EDUCACION]');
-    l(this.state, 'state', this);
-    l(this.props, 'props', this);
+    // id
+    // id_user
+    // titulo
+    // tipo
+    // instituto
+    // detalle
+    // desde
+    // hasta
+    // duracion_total
+    // duracion_unidad
 
-    const saveEdit = (value, editMe, idUser) => {
-      const data = {
-        nombre: value.nombre,
-        apellido: value.apellido,
-
-        genero: value.genero.select,
-        generoMas: value.genero.otro,
-
-        paisOrigen: value.paisOrigen,
-        fechaNacimiento: value.fechaNacimiento,
-        educacionMax: value.educacionMax,
-        profesion: value.profesion,
-        telefono: value.telefono,
-
-        dni: value.dniCuil.dni,
-        cuil: value.dniCuil.cuil,
-
-        tieneLicencia: value.tieneLicencia.checked,
-      };
-      editMe({ variables: { data, idUser }, refetchQueries: [{ query: ME_DATA }] });
-    };
+    const idUser = this.props.user.id;
 
     return (
-      <Query query={ME_DATA}>
+      <Query query={ME_ESTUDIOS} variables={{ idUser }} skip={!idUser}>
         {(respuesta) => {
           if (respuesta.loading) return <p>Cargando...</p>;
-          if (respuesta.data && respuesta.data.meData === null) {
+          if (respuesta.data && respuesta.data.address === null) {
             return <ErrorComponent />;
           }
           if (!respuesta.error) {
-            l(respuesta.data.meData, 'me data');
-            const { meData } = respuesta.data;
-            // this.setState({ meData });
-            return (
-              <Mutation mutation={UPDATE_ME}>
-                {(editMe, { loading, error }) => (
-                  <Box align="start" direction={'row-responsive'} gap={'large'} pad={'large'}>
-                    <Form
-                      onSubmit={({ value }) => saveEdit(value, editMe, meData.idUser)}
-                      value={{
-                        apellido: meData.apellido,
-                        nombre: meData.nombre,
-                        dniCuil: {
-                          dni: meData.dni,
-                          cuil: meData.cuil,
-                        },
-                        email: meData.email,
-                        educacionMax: meData.educacionMax,
-                        fechaNacimiento: meData.fechaNacimiento,
-                        genero: {
-                          select: meData.genero,
-                          otro: meData.generoMas,
-                        },
-                        paisOrigen: meData.paisOrigen,
-                        profesion: meData.profesion,
-                        telefono: meData.telefono,
-                        tieneLicencia: { checked: meData.tieneLicencia },
-                      }}
-                    >
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          label="APELLIDO"
-                          name="apellido"
-                          required
-                          validate={{ regexp: /^[a-z]/i }}
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={TextInput}
-                        />
+            l(respuesta.data.address, 'address');
+            const { studies } = respuesta.data;
 
-                        <FormField
-                          label="NOMBRE"
-                          name="nombre"
-                          required
-                          validate={{ regexp: /^[a-z]/i }}
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={TextInput}
-                        />
-                      </Box>
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          size={'small'}
-                          label="PAIS ORIGEN"
-                          name="paisOrigen"
-                          required
-                          validate={{ regexp: /^[a-z]/i }}
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={TextInput}
-                        />
-                      </Box>
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          size={'small'}
-                          label="GENERO"
-                          name="genero"
-                          options={['Masculino', 'Femenino', 'Otro']}
-                          // required
-                          component={GeneroSelect}
-                        />
-                      </Box>
-                      <Box align="start" direction={'row-responsive'} gap={'large'} responsive>
-                        <FormField
-                          size={'small'}
-                          label="FECHA DE NACIMIENTO"
-                          name="fechaNacimiento"
-                          required
-                          bounds={['1918-12-31', '2010-12-31']}
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={FechaNacimientoMaskedInput}
-                        />
-                        <FormField
-                          size={'small'}
-                          name="dniCuil"
-                          component={DniMaskedInput}
-                          responsive
-                        />
-                      </Box>
-
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          size={'small'}
-                          label="PROFESION"
-                          name="profesion"
-                          required
-                          validate={{ regexp: /^[a-z]/i }}
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={TextInput}
-                        />
-                        <FormField
-                          size={'small'}
-                          label={'POSEE LICENCIA?'}
-                          etiqueta="LICENCIA DE CONDUCIR"
-                          name="tieneLicencia"
-                          toggle
-                          component={CheckBox}
-                        />
-                      </Box>
-
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          size={'small'}
-                          label="EMAIL"
-                          name="email"
-                          value={meData.email} // not editable
-                          required
-                          style={{ borderBottom: 'solid 1px #888888' }}
-                          component={EmailMaskedInput}
-                        />
-
-                        <FormField
-                          size={'small'}
-                          label="TELEFONO"
-                          name="telefono"
-                          required
-                          borderBottom
-                          validate={{ regexp: /^[0-9]/i }}
-                          component={TextInput}
-                        />
-                      </Box>
-
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
-                        <FormField
-                          size={'small'}
-                          label="NIVEL DE ESTUDIO"
-                          name="educacionMax"
-                          options={['Primario', 'Secundario', 'Terciario', 'Universitario']}
-                          required
-                          component={GroupedButtonsSelect}
-                          plain
-                        />
-                      </Box>
-
-                      <Box
-                        direction="row"
-                        justify="end"
-                        margin={{ top: 'medium', bottom: 'meddium' }}
-                      >
-                        <LoadingButton
-                          type="submit"
-                          reverse
-                          loading={loading}
-                          primary
-                          label={'Actualizar Datos'}
-                        />
-                      </Box>
-                      {error && <ErrorComponent error={error} />}
-                    </Form>
-                  </Box>
-                )}
-              </Mutation>
-            );
+            return studies.map((study) => (
+              <Estudio
+                key={study.id}
+                estudio={study}
+                eliminar={this.eliminar}
+                editar={this.editar}
+              />
+            ));
           }
           return null;
         }}
@@ -220,4 +57,4 @@ class Educacion extends Component {
   }
 }
 
-export default Educacion;
+export default Personales;

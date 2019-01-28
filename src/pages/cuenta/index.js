@@ -10,7 +10,7 @@ import Laborales from './laborales';
 
 class Index extends Component {
   state = {
-    index: 1,
+    index: 2,
   };
 
   onActive = (index) => this.setState({ index });
