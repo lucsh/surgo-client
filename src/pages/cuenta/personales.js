@@ -85,7 +85,12 @@ class Personales extends Component {
                         tieneLicencia: { checked: meData.tieneLicencia },
                       }}
                     >
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
+                      <Box
+                        align="start"
+                        direction={'row-responsive'}
+                        gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
+                      >
                         <FormField
                           label="APELLIDO"
                           name="apellido"
@@ -104,7 +109,12 @@ class Personales extends Component {
                           component={TextInput}
                         />
                       </Box>
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
+                      <Box
+                        align="start"
+                        direction={'row-responsive'}
+                        gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
+                      >
                         <FormField
                           size={'small'}
                           label="PAIS ORIGEN"
@@ -115,7 +125,12 @@ class Personales extends Component {
                           component={TextInput}
                         />
                       </Box>
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
+                      <Box
+                        align="start"
+                        direction={'row-responsive'}
+                        gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
+                      >
                         <FormField
                           size={'small'}
                           label="ESTADO CIVIL"
@@ -125,6 +140,13 @@ class Personales extends Component {
                           component={GroupedButtonsSelect}
                           plain
                         />
+                      </Box>
+                      <Box
+                        align="start"
+                        direction={'row-responsive'}
+                        gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
+                      >
                         <FormField
                           size={'small'}
                           label="HIJOS"
@@ -136,7 +158,12 @@ class Personales extends Component {
                           component={TextInput}
                         />
                       </Box>
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
+                      <Box
+                        align="start"
+                        direction={'row-responsive'}
+                        gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
+                      >
                         <FormField
                           size={'small'}
                           label="GENERO"
@@ -146,7 +173,13 @@ class Personales extends Component {
                           component={GeneroSelect}
                         />
                       </Box>
-                      <Box align="start" direction={'row-responsive'} gap={'large'} responsive>
+                      <Box
+                        align="start"
+                        direction={'row-responsive'}
+                        gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
+                        responsive
+                      >
                         <FormField
                           size={'small'}
                           label="FECHA DE NACIMIENTO"
@@ -164,7 +197,12 @@ class Personales extends Component {
                         />
                       </Box>
 
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
+                      <Box
+                        align="start"
+                        direction={'row-responsive'}
+                        gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
+                      >
                         <FormField
                           size={'small'}
                           label="PROFESION"
@@ -184,7 +222,12 @@ class Personales extends Component {
                         />
                       </Box>
 
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
+                      <Box
+                        align="start"
+                        direction={'row-responsive'}
+                        gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
+                      >
                         <FormField
                           size={'small'}
                           label="EMAIL"
@@ -207,7 +250,12 @@ class Personales extends Component {
                         />
                       </Box>
 
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
+                      <Box
+                        align="start"
+                        direction={'row-responsive'}
+                        gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
+                      >
                         <FormField
                           size={'small'}
                           label="NIVEL DE ESTUDIO"
@@ -223,6 +271,7 @@ class Personales extends Component {
                         direction="row"
                         justify="end"
                         margin={{ top: 'medium', bottom: 'meddium' }}
+                        pad={{ vertical: 'xsmall' }}
                       >
                         <LoadingButton
                           type="submit"

@@ -41,12 +41,19 @@ const surgo = deepFreeze({
   global: {
     font: {
       family: 'Inter UI var alt, sans-serif;',
-      size: '16px',
+      size: '14px',
       height: '20px',
     },
     colors,
   },
-
+  text: {
+    xsmall: 12,
+    small: 12,
+    medium: 12,
+    large: 14,
+    xlarge: 16,
+    xxlarge: 18,
+  },
   textInput: {
     extend: css`
       font-weight: 200;
@@ -74,7 +81,6 @@ const surgo = deepFreeze({
   },
   button: {
     primary: {
-
       color: { dark: '#E84F20', light: '#E84F20' },
     },
     border: {

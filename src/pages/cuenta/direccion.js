@@ -60,7 +60,7 @@ class Personales extends Component {
                         },
                       }}
                     >
-                      <Box align="start" direction={'row-responsive'} gap={'large'}>
+                      <Box align="start" direction={'row-responsive'} gap={'large'} pad={{ vertical: 'xsmall' }}>
                         <FormField
                           label="CALLE"
                           name="calle"
@@ -85,6 +85,7 @@ class Personales extends Component {
                         fill="horizontal"
                         direction={'row-responsive'}
                         gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
                       >
                         <FormField
                           fill="horizontal"
@@ -100,6 +101,7 @@ class Personales extends Component {
                         fill="horizontal"
                         direction={'row-responsive'}
                         gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
                       >
                         <FormField
                           fill="horizontal"
@@ -111,6 +113,7 @@ class Personales extends Component {
                       <Box
                         direction="row"
                         justify="end"
+                        pad={{ vertical: 'xsmall' }}
                         margin={{ top: 'medium', bottom: 'meddium' }}
                       >
                         <LoadingButton
@@ -118,7 +121,7 @@ class Personales extends Component {
                           reverse
                           loading={loading}
                           primary
-                          label={'Actualizar Datos'}
+                          label={'Actualizar Dirección'}
                         />
                       </Box>
                       {error && <ErrorComponent error={error} />}

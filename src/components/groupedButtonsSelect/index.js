@@ -20,6 +20,7 @@ class GroupedButtonsSelect extends Component {
         fontSize: '12px',
         borderLeft: 'none',
         borderRadius: 0,
+        fontWeight: 300,
       },
       first: {
         borderLeft: 'inherith',

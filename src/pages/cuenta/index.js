@@ -22,7 +22,6 @@ class Index extends Component {
     const { index } = this.state;
     const { user } = this.props;
 
-    // ToDo: Agregar campos de dirección
     // ToDo: Cambiar la validacion (required)
     // ToDo: Agregar campo para subir foto
     // ToDo: El dato de nivel de estudio debería ser dinamico desde la tabla `user_educacion`

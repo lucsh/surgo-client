@@ -1,16 +1,18 @@
-import { TextInput } from 'grommet/es6';
+import { Box, TextInput } from 'grommet/es6';
 import React, { Component } from 'react';
 
 class Input extends Component {
   state = {
-    genero: '',
-    otro: '',
+    value: '',
   };
 
-  const;
   componentDidMount() {
     let { value } = this.props;
+    console.log('value en input cdi props', value);
+
     value = this.props.numeric ? this.toNumber(value) : value;
+    console.log('value en input cdi state', value);
+
     this.setState({
       value,
     });
@@ -45,16 +47,26 @@ class Input extends Component {
       type = 'number';
     }
 
+    console.log('value en input render', this.state.value);
+
     return (
-      <TextInput
-        size={this.props.size}
-        placeholder={this.props.placeholder}
-        style={{ ...styles }}
-        type={type}
-        value={`${this.state.value}`}
-        onChange={this.onChange}
-        plain
-      />
+      <Box
+        align="start"
+        direction={'row-responsive'}
+        gap={'large'}
+        pad={{ vertical: 'xsmall' }}
+        width={this.props.width}
+      >
+        <TextInput
+          size={this.props.size}
+          placeholder={this.props.placeholder}
+          style={{ ...styles }}
+          type={type}
+          value={`${this.state.value}`}
+          onChange={this.onChange}
+          plain
+        />
+      </Box>
     );
   }
 }

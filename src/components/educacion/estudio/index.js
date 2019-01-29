@@ -20,9 +20,10 @@ class Estudio extends Component {
   render() {
     const BRAND_COLOR = theme.global.colors['brand'];
 
-    const { estudio } = this.props;
+    const { estudio, editando } = this.props;
     const desde = moment(estudio.desde).format('Y');
     const hasta = moment(estudio.hasta).format('Y');
+    const elevation = editando ? 'large' : 'xsmall';
     return (
       <Box
         alignContent="start"
@@ -32,7 +33,7 @@ class Estudio extends Component {
         pad="medium"
         margin={{ top: '15px' }}
         width="large"
-        elevation="xsmall"
+        elevation={elevation}
       >
         <Box
           align="center"
@@ -58,7 +59,7 @@ class Estudio extends Component {
           <Box align="center" direction={'row'} gap={'none'} pad={'none'}>
             <Text size={'xsmall'} weight={'bold'} color={'#7C8284'}>
               {estudio.instituto}{' '}
-              <Text size={'xsmall'} weight={'300'} color={'#7C8284'}>
+              <Text size={'xsmall'} weight={300} color={'#7C8284'}>
                 ({desde} - {hasta})
               </Text>
             </Text>
@@ -69,13 +70,13 @@ class Estudio extends Component {
                 {
                   label: 'Editar',
                   onClick: () => {
-                    this.props.editar(estudio.id);
+                    this.props.editar(estudio);
                   },
                 },
                 {
                   label: 'Eliminar',
                   onClick: () => {
-                    this.props.eliminar(estudio.id);
+                    this.props.eliminar(estudio);
                   },
                 },
               ]}

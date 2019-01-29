@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { ME_ESTUDIOS } from './constants';
 import { Query } from 'react-apollo';
 
@@ -6,10 +6,14 @@ import { i, l } from '../../utils/log';
 
 import ErrorComponent from '../../components/error';
 import Estudio from '../../components/educacion/estudio';
+import EditarEstudio from '../../components/educacion/form';
 
 class Personales extends Component {
-  editar = (id) => {
-    console.log('editar', id);
+  state = { editando: false };
+  editar = (estudio) => {
+    console.log('editar', estudio);
+    this.setState({ editando: estudio.id });
+    this.setState({ estudio });
   };
 
   eliminar = (id) => {
@@ -30,29 +34,34 @@ class Personales extends Component {
 
     const idUser = this.props.user.id;
 
+    const { editando, estudio } = this.state;
     return (
-      <Query query={ME_ESTUDIOS} variables={{ idUser }} skip={!idUser}>
-        {(respuesta) => {
-          if (respuesta.loading) return <p>Cargando...</p>;
-          if (respuesta.data && respuesta.data.address === null) {
-            return <ErrorComponent />;
-          }
-          if (!respuesta.error) {
-            l(respuesta.data.address, 'address');
-            const { studies } = respuesta.data;
+      <Fragment>
+        <Query query={ME_ESTUDIOS} variables={{ idUser }} skip={!idUser}>
+          {(respuesta) => {
+            if (respuesta.loading) return <p>Cargando...</p>;
+            if (respuesta.data && respuesta.data.address === null) {
+              return <ErrorComponent />;
+            }
+            if (!respuesta.error) {
+              l(respuesta.data.address, 'address');
+              const { studies } = respuesta.data;
 
-            return studies.map((study) => (
-              <Estudio
-                key={study.id}
-                estudio={study}
-                eliminar={this.eliminar}
-                editar={this.editar}
-              />
-            ));
-          }
-          return null;
-        }}
-      </Query>
+              return studies.map((study) => (
+                <Estudio
+                  key={study.id}
+                  estudio={study}
+                  eliminar={this.eliminar}
+                  editar={this.editar}
+                  editando={study.id === editando}
+                />
+              ));
+            }
+            return null;
+          }}
+        </Query>
+        {editando && <EditarEstudio k={estudio.id} estudio={estudio} />}
+      </Fragment>
     );
   }
 }
