@@ -40,7 +40,7 @@ Object.keys(statusColors).forEach((color) => {
 const surgo = deepFreeze({
   global: {
     font: {
-      family: 'Lato',
+      family: 'Inter UI var alt, sans-serif;',
       size: '16px',
       height: '20px',
     },
@@ -51,7 +51,7 @@ const surgo = deepFreeze({
     extend: css`
       font-weight: 200;
       padding: 2px;
-      borderbottom: '1px solid grey';
+      //border-bottom: 1px solid grey;
     `,
   },
   MaskedInput: {
