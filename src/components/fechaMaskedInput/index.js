@@ -85,9 +85,6 @@ class DateInput extends Component {
   };
 
   onChange = (e) => {
-    console.log('eeeeeee');
-    console.log(e);
-    console.log(e.target.value);
     const value = moment(e.target.value, 'DD-MM-YYYY');
     this.props.onChange({ value });
   };

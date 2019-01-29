@@ -7,6 +7,7 @@ import { i, l } from '../../utils/log';
 import ErrorComponent from '../../components/error';
 import Estudio from '../../components/educacion/estudio';
 import EditarEstudio from '../../components/educacion/form';
+import { Heading } from 'grommet/es6';
 
 class Personales extends Component {
   state = { editando: false };
@@ -47,15 +48,42 @@ class Personales extends Component {
               l(respuesta.data.address, 'address');
               const { studies } = respuesta.data;
 
-              return studies.map((study) => (
-                <Estudio
-                  key={study.id}
-                  estudio={study}
-                  eliminar={this.eliminar}
-                  editar={this.editar}
-                  editando={study.id === editando}
-                />
-              ));
+              return (
+                <Fragment>
+                  <Heading textAlign="start" alignSelf="start" level={3}>
+                    Educacion
+                  </Heading>
+                  {studies.map((study) => {
+                    if (study.tipo !== 'Curso') {
+                      return (
+                        <Estudio
+                          key={study.id}
+                          estudio={study}
+                          eliminar={this.eliminar}
+                          editar={this.editar}
+                          editando={study.id === editando}
+                        />
+                      );
+                    }
+                  })}
+                  <Heading textAlign="start" alignSelf="start" level={3}>
+                    Cursos
+                  </Heading>
+                  {studies.map((study) => {
+                    if (study.tipo === 'Curso') {
+                      return (
+                        <Estudio
+                          key={study.id}
+                          estudio={study}
+                          eliminar={this.eliminar}
+                          editar={this.editar}
+                          editando={study.id === editando}
+                        />
+                      );
+                    }
+                  })}
+                </Fragment>
+              );
             }
             return null;
           }}

@@ -5,7 +5,7 @@ import { i, l } from '../../../utils/log/index';
 import { FormField, Button, Box } from 'grommet';
 import TextInput from '../../textInput';
 import GeneroSelect from '../generoSelect';
-import FechaNacimientoMaskedInput from '../fechaNacimientoMaskedInput';
+import FechaNacimientoMaskedInput from '../../fechaMaskedInput';
 import DniMaskedInput from '../dniMaskedInput';
 import CheckBox from '../../checkBox';
 import EmailMaskedInput from '../emailMaskedInput';

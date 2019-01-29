@@ -22,7 +22,20 @@ class Estudio extends Component {
 
     const { estudio, editando } = this.props;
     const desde = moment(estudio.desde).format('Y');
-    const hasta = moment(estudio.hasta).format('Y');
+    let hasta = moment(estudio.hasta);
+    // hasta = hasta.isValid() ? hasta.format('Y') : 'En Curso';
+
+    let estado = estudio.estado;
+    if (estado === 'Inconcluso' || estado === '') {
+      estado = 'Inconcluso';
+    }
+    if (hasta.isValid()) {
+      hasta = hasta.format('Y');
+    } else {
+      hasta = '';
+      estado = 'En Curso';
+    }
+
     const elevation = editando ? 'large' : 'xsmall';
     return (
       <Box
@@ -62,6 +75,10 @@ class Estudio extends Component {
               <Text size={'xsmall'} weight={300} color={'#7C8284'}>
                 ({desde} - {hasta})
               </Text>
+              <Text size={'10px'} weight={300} color={'#7C8284'}>
+                {' '}
+                {estado}
+              </Text>
             </Text>
             <Menu
               size="small"
@@ -83,7 +100,14 @@ class Estudio extends Component {
             />
           </Box>
         </Box>
-        <Box align="start" direction={'row-responsive'} gap={'none'} pad={'xsmall'}>
+        <Box
+          style={{ borderLeft: `2px dotted ${BRAND_COLOR}` }}
+          margin={{ left: '3px' }}
+          align="start"
+          direction={'row-responsive'}
+          gap={'none'}
+          pad={'none'}
+        >
           <Text margin={{ left: '10px', top: '5px', bottom: '10px' }} size={'12px'}>
             {estudio.detalle}
           </Text>

@@ -10,7 +10,7 @@ import DniMaskedInput from '../../components/editMe/dniMaskedInput';
 import EmailMaskedInput from '../../components/editMe/emailMaskedInput';
 import CheckBox from '../../components/checkBox';
 import TextInput from '../../components/textInput';
-import FechaNacimientoMaskedInput from '../../components/editMe/fechaNacimientoMaskedInput';
+import FechaNacimientoMaskedInput from '../../components/fechaMaskedInput';
 import GroupedButtonsSelect from '../../components/groupedButtonsSelect';
 import GeneroSelect from '../../components/editMe/generoSelect';
 import LoadingButton from '../../components/loadingButton';

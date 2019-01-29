@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Box, Button } from 'grommet/es6';
 import theme from '../../utils/theme';
+import { CheckboxSelected } from 'grommet-icons';
 
 class GroupedButtonsSelect extends Component {
   render() {
@@ -62,6 +63,11 @@ class GroupedButtonsSelect extends Component {
               plain
               color={'brand'}
               primary={isSelected}
+              icon={
+                this.props.icon && isSelected ? (
+                  <CheckboxSelected size="small" color="white" />
+                ) : null
+              }
               onClick={(e) => onChange(e, option)}
             />
           );

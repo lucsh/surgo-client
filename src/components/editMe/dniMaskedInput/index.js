@@ -13,7 +13,7 @@ class DniMaskedInput extends Component {
     const dni = this.props.value.dni;
     const cuil = this.props.value.cuil;
     let parsedDni = dni;
-    const parsedDniMatch = dni.match(/\d/g);
+    const parsedDniMatch = dni && dni.match(/\d/g);
     if (parsedDniMatch) {
       parsedDni = parsedDniMatch.join('');
     }
