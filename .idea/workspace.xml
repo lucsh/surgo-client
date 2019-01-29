@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ab7edcf-c1da-471a-ada9-9d8216fdda67" name="Default Changelist" comment="orphans">
-      <change beforePath="$PROJECT_DIR$/src/pages/cuenta/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cuenta/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/cuenta/educacion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cuenta/educacion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/cuenta/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cuenta/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navigation/header/navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navigation/header/navigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/theme/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/theme/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,9 +37,9 @@
           <entry key="es6" value="10" />
           <entry key="eslintrc" value="1" />
           <entry key="graphqls" value="2" />
-          <entry key="html" value="8" />
+          <entry key="html" value="9" />
           <entry key="ico" value="2" />
-          <entry key="js" value="551" />
+          <entry key="js" value="556" />
           <entry key="json" value="12" />
           <entry key="jsx" value="8" />
           <entry key="lock" value="1" />
@@ -48,7 +48,7 @@
           <entry key="rnc" value="1" />
           <entry key="sql" value="1" />
           <entry key="svg" value="6" />
-          <entry key="ts" value="44" />
+          <entry key="ts" value="47" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
@@ -57,17 +57,17 @@
           <entry key=".env file" value="2" />
           <entry key="CSS" value="8" />
           <entry key="GraphQL Schema" value="2" />
-          <entry key="HTML" value="8" />
+          <entry key="HTML" value="9" />
           <entry key="Image" value="6" />
           <entry key="JSON" value="13" />
           <entry key="JSX Harmony" value="8" />
-          <entry key="JavaScript" value="551" />
+          <entry key="JavaScript" value="556" />
           <entry key="Markdown" value="4" />
           <entry key="RNG Compact" value="1" />
           <entry key="SQL" value="1" />
           <entry key="SVG" value="6" />
           <entry key="Scratch" value="10" />
-          <entry key="TypeScript" value="44" />
+          <entry key="TypeScript" value="47" />
           <entry key="XML" value="1" />
           <entry key="yarn.lock" value="1" />
         </counts>
@@ -76,8 +76,8 @@
         <counts>
           <entry key="env" value="8" />
           <entry key="eslintrc" value="6" />
-          <entry key="html" value="4" />
-          <entry key="js" value="21959" />
+          <entry key="html" value="6" />
+          <entry key="js" value="22322" />
           <entry key="json" value="91" />
           <entry key="svg" value="12" />
           <entry key="txt" value="7" />
@@ -87,10 +87,10 @@
         <counts>
           <entry key=".env file" value="8" />
           <entry key="GraphQL" value="22" />
-          <entry key="HTML" value="4" />
+          <entry key="HTML" value="6" />
           <entry key="JSON" value="97" />
-          <entry key="JavaScript" value="21930" />
-          <entry key="Less" value="7" />
+          <entry key="JavaScript" value="22292" />
+          <entry key="Less" value="8" />
           <entry key="PLAIN_TEXT" value="7" />
           <entry key="SVG" value="12" />
         </counts>
@@ -110,46 +110,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/cuenta/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/cuenta/direccion.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="42" selection-start-line="42" selection-end-line="43" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/tab/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" selection-start-line="6" selection-end-line="7" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/educacion/estudio/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="66" column="72" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="72" />
+            <state relative-caret-position="582">
+              <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -167,37 +131,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/grommet/es6/components/Button/index.d.ts">
+        <entry file="file://$PROJECT_DIR$/src/components/navigation/header/navigation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/grommet/es6/components/Text/index.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="256" selection-start-line="6" selection-start-column="252" selection-end-line="6" selection-end-column="256" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/theme/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1300">
-              <caret line="65" column="21" lean-forward="true" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+            <state relative-caret-position="565">
+              <caret line="56" column="35" lean-forward="true" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#152#190#0" expanded="true" />
+                <element signature="e#346#391#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/cuenta/educacion.js">
+        <entry file="file://$PROJECT_DIR$/src/components/menuItem/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="746">
-              <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+            <state relative-caret-position="160">
+              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -206,10 +157,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/grommet/es6/components/Box/index.d.ts">
+        <entry file="file://$PROJECT_DIR$/node_modules/grommet/es6/components/Button/index.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="7" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="7" />
+            <state relative-caret-position="340">
+              <caret line="17" column="7" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -225,15 +176,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/error</find>
-      <find>asdlkaklasksdakdaslkkdasklasdkl</find>
       <find>critical</find>
       <find>row</find>
       <find>showSidebar</find>
       <find>direction=&quot;row&quot;</find>
       <find>activeMe</find>
       <find>acti</find>
-      <find>activeMenu</find>
       <find>setA</find>
       <find>setActiveMenu</find>
       <find>221,221,221,0.4</find>
@@ -255,6 +203,9 @@
       <find>center</find>
       <find>s</find>
       <find>betw</find>
+      <find>Lato</find>
+      <find>light</find>
+      <find>activeMenu</find>
     </findStrings>
     <replaceStrings>
       <replace>// isLoggedIn: state.auth.isLoggedIn,</replace>
@@ -269,8 +220,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/editMe/generoSelect/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/verify/index.js" />
         <option value="$PROJECT_DIR$/src/components/login/index.js" />
         <option value="$PROJECT_DIR$/src/components/login/Form.js" />
         <option value="$PROJECT_DIR$/src/components/editMe/form/index.js" />
@@ -295,7 +244,6 @@
         <option value="$PROJECT_DIR$/src/components/navigation/a11y.js" />
         <option value="$PROJECT_DIR$/src/components/error/index.js" />
         <option value="$PROJECT_DIR$/src/components/notificacion/index.js" />
-        <option value="$PROJECT_DIR$/src/utils/theme/index.js" />
         <option value="$PROJECT_DIR$/src/pages/cuenta/personales.js" />
         <option value="$PROJECT_DIR$/src/components/layout/constants.js" />
         <option value="$PROJECT_DIR$/src/components/selectLocalidad/index.js" />
@@ -303,7 +251,6 @@
         <option value="$PROJECT_DIR$/src/components/usuario/a11y.js" />
         <option value="$PROJECT_DIR$/src/components/textInput/index.js" />
         <option value="$PROJECT_DIR$/src/components/selectProvinciaLocalidad/selectProvincia.js" />
-        <option value="$PROJECT_DIR$/src/components/navigation/header/navigation.js" />
         <option value="$PROJECT_DIR$/src/components/selectProvinciaLocalidad/index.js" />
         <option value="$PROJECT_DIR$/src/pages/cuenta/direccion.js" />
         <option value="$PROJECT_DIR$/src/auth/AuthRoute.js" />
@@ -320,6 +267,10 @@
         <option value="$PROJECT_DIR$/src/components/educacion/form/index.js" />
         <option value="$PROJECT_DIR$/src/components/educacion/estudio/index.js" />
         <option value="$PROJECT_DIR$/src/pages/cuenta/educacion.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/src/utils/theme/index.js" />
+        <option value="$PROJECT_DIR$/src/components/navigation/header/navigation.js" />
+        <option value="$PROJECT_DIR$/src/components/menuItem/index.js" />
       </list>
     </option>
   </component>
@@ -365,12 +316,6 @@
               <item name="client" type="b2602c69:ProjectViewProjectNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -378,47 +323,22 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="educacion" type="462c0819:PsiDirectoryNode" />
+              <item name="logo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="client" type="b2602c69:ProjectViewProjectNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="groupedButtonsSelect" type="462c0819:PsiDirectoryNode" />
+              <item name="navigation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="client" type="b2602c69:ProjectViewProjectNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="loading" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="cuenta" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="theme" type="462c0819:PsiDirectoryNode" />
+              <item name="navigation" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -499,7 +419,7 @@
       <workItem from="1547902805923" duration="40357000" />
       <workItem from="1548183813745" duration="5726000" />
       <workItem from="1548507197977" duration="25181000" />
-      <workItem from="1548542324718" duration="12902000" />
+      <workItem from="1548542324718" duration="15290000" />
     </task>
     <task id="LOCAL-00001" summary="orphans">
       <created>1548104206760</created>
@@ -512,7 +432,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178194000" />
+    <option name="totallyTimeSpent" value="180582000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -562,46 +482,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="67" column="34" lean-forward="true" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/editMe/form/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/editMe/emailMaskedInput/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/error/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/layout/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/selectLocalidad/index.js" />
     <entry file="file://$PROJECT_DIR$/src/components/usuario/query/authUser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -684,18 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/navigation/header/navigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#152#190#0" expanded="true" />
-            <element signature="e#346#391#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/auth/AuthRoute.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -761,16 +629,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#137#202#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/logo/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -936,13 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/theme/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1300">
-          <caret line="65" column="21" lean-forward="true" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/grommet/es6/components/Text/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -960,13 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/grommet/es6/components/Button/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/cuenta/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="574">
@@ -977,13 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/grommet/es6/components/Menu/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/grommet/es6/components/Box/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -991,20 +828,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/cuenta/educacion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="54" column="14" lean-forward="true" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="826">
+          <caret line="67" column="34" lean-forward="true" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/grommet/themes/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="311" column="42" selection-start-line="311" selection-start-column="37" selection-end-line="311" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/grommet/themes/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/theme/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="61" column="6" lean-forward="true" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/grommet/es6/components/Anchor/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/logo/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" lean-forward="true" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/educacion/estudio/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="66" column="72" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="72" />
+        <state relative-caret-position="582">
+          <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/cuenta/educacion.js">
+    <entry file="file://$PROJECT_DIR$/src/components/navigation/header/navigation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+        <state relative-caret-position="565">
+          <caret line="56" column="35" lean-forward="true" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#152#190#0" expanded="true" />
+            <element signature="e#346#391#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/grommet/es6/components/Button/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/grommet/es6/components/Menu/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/menuItem/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

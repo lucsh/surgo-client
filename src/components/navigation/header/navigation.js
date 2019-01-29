@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Box, Button, ResponsiveContext, Text } from 'grommet';
+import MenuItem from '../../menuItem';
 
 // Redux
 import { connect } from 'react-redux';
@@ -40,31 +41,25 @@ class Navigation extends Component {
             </Box>
           )}
         </ResponsiveContext.Consumer>
-        <Button
-          key="general"
+        <MenuItem
+          k="general"
           onClick={() => {
             this.goto(DASHBOARD_PATH);
           }}
           hoverIndicator
           active={activeMenu === DASHBOARD_PATH}
-        >
-          <Box pad={{ horizontal: 'medium' }}>
-            <Text>{GENERAL}</Text>
-          </Box>
-        </Button>
+          text={GENERAL}
+        />
 
-        <Button
-          key="cuenta"
+        <MenuItem
+          k="cuenta"
           onClick={() => {
             this.goto(CUENTA_PATH);
           }}
           hoverIndicator
           active={activeMenu === CUENTA_PATH}
-        >
-          <Box pad={{ horizontal: 'medium' }}>
-            <Text>{CUENTA}</Text>
-          </Box>
-        </Button>
+          text={CUENTA}
+        />
       </Box>
     );
   }
