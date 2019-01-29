@@ -20,7 +20,7 @@ const statusColors = {
 };
 
 const colors = {
-  brand: '#3d70b2',
+  brand: '#E86137',
   secondary: '#5596e6',
   black: '#152935',
   focus: '#0096d7',
@@ -64,7 +64,7 @@ const surgo = deepFreeze({
   formField: {
     label: {
       color: 'black',
-      size: '10px',
+      size: '12px',
       margin: {
         vertical: '0px',
         horizontal: '-10px',
@@ -73,10 +73,14 @@ const surgo = deepFreeze({
     border: null,
   },
   button: {
-    border: {
-      radius: '0px',
+    primary: {
+
+      color: { dark: '#E84F20', light: '#E84F20' },
     },
-    extend: 'letter-spacing: 0.04167em;',
+    border: {
+      radius: '5px',
+    },
+    extend: 'letter-spacing: 0.04167em; font-size:12px; text-transform:uppercase;',
   },
   icon: {
     colors,

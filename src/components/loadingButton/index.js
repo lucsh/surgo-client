@@ -18,6 +18,7 @@ class LoadingButton extends Component {
         {...extraProps}
         reverse
         primary
+        style={{ fontWeight: 'bold' }}
         label={'Actualizar Datos'}
         disabled={loading}
       />

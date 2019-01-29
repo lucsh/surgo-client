@@ -9,7 +9,7 @@ import { authLogout } from '../../../actions/auth';
 import { setActiveMenu } from '../actions';
 
 import { SALIR, CUENTA, ANONIMO } from '../a11y';
-import { CUENTA_PATH, LOGOUT_PATH } from '../../../constants/BaseConfig'
+import { CUENTA_PATH, LOGOUT_PATH } from '../../../constants/BaseConfig';
 import history from '../../../utils/history';
 import { i } from '../../../utils/log';
 
@@ -46,7 +46,7 @@ class UsuarioDropMenu extends Component {
       label = user.nombre;
     }
 
-    return <Menu align="center" label={label} items={itemsMenu} />;
+    return <Menu align="center" size={'12px'} label={label} items={itemsMenu} />;
   }
 }
 

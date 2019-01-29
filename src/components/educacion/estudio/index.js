@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Box } from 'grommet/es6/components/Box';
-import { Anchor, Button, Menu, Paragraph, Text } from 'grommet/es6'
+import { Anchor, Button, Menu, Paragraph, Text } from 'grommet/es6';
 import moment from 'moment';
 import theme from '../../../utils/theme';
 import { More } from 'grommet-icons';
@@ -29,15 +29,16 @@ class Estudio extends Component {
         justify="start"
         align="start"
         direction="column"
-        pad="small"
-        width="medium"
+        pad="medium"
+        margin={{ top: '15px' }}
+        width="large"
         elevation="xsmall"
       >
         <Box
           align="center"
           justify="between"
           direction={'row'}
-          width="medium"
+          width="large"
           gap={'small'}
           pad={'none'}
         >
@@ -55,27 +56,37 @@ class Estudio extends Component {
             </Text>
           </Box>
           <Box align="center" direction={'row'} gap={'none'} pad={'none'}>
-            <Text size={'xsmall'} weight={'bold'} color={'#BEBEBE'}>
-              {estudio.instituto} ({desde} - {hasta})
+            <Text size={'xsmall'} weight={'bold'} color={'#7C8284'}>
+              {estudio.instituto}{' '}
+              <Text size={'xsmall'} weight={'300'} color={'#7C8284'}>
+                ({desde} - {hasta})
+              </Text>
             </Text>
             <Menu
               size="small"
-              // label="..."
               icon={<More size="small" />}
               items={[
-                { label: 'Editar', onClick: () => {this.props.editar(estudio.id)} },
-                { label: 'Eliminar', onClick: () => {this.props.eliminar(estudio.id)} },
+                {
+                  label: 'Editar',
+                  onClick: () => {
+                    this.props.editar(estudio.id);
+                  },
+                },
+                {
+                  label: 'Eliminar',
+                  onClick: () => {
+                    this.props.eliminar(estudio.id);
+                  },
+                },
               ]}
             />
           </Box>
-
         </Box>
-        <Box align="start" direction={'row-responsive'} gap={'none'} pad={'none'}>
-          <Text margin={{ left: '10px', top: '5px' }} size={'12px'}>
+        <Box align="start" direction={'row-responsive'} gap={'none'} pad={'xsmall'}>
+          <Text margin={{ left: '10px', top: '5px', bottom: '10px' }} size={'12px'}>
             {estudio.detalle}
           </Text>
         </Box>
-
       </Box>
     );
   }

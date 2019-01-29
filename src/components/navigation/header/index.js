@@ -30,7 +30,7 @@ class Header extends Component {
           <Navigation />
         </Box>
 
-        <Text alignSelf="end">
+        <Text size={"12px"} alignSelf="center">
           <DropMenu user={user} />
         </Text>
       </Box>

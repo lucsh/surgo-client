@@ -11,7 +11,7 @@ class MenuItem extends Component {
     return (
       <Button hoverIndicator style={style} plain key={k} onClick={onClick}>
         <Box pad={{ horizontal: 'medium' }}>
-          <Text>{text}</Text>
+          <Text size={'12px'}>{text}</Text>
         </Box>
       </Button>
     );
