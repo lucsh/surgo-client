@@ -33,7 +33,7 @@ class InputArea extends Component {
         direction={'row-responsive'}
         gap={'large'}
         pad={{ vertical: 'xsmall' }}
-        width={'large'}
+        width={this.props.width}
       >
         <TextArea
           {...this.props}

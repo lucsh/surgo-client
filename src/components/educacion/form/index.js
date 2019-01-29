@@ -41,7 +41,8 @@ class EditarEstudio extends Component {
       <Mutation mutation={UPDATE_ESTUDIO}>
         {(editMe, { loading, error }) => (
           <Box
-            align="start"
+            align="center"
+            justify="center"
             direction={'row-responsive'}
             gap={'large'}
             pad={'large'}
@@ -73,7 +74,7 @@ class EditarEstudio extends Component {
                   label="TITULO"
                   name="titulo"
                   required
-                  width={'large'}
+                  width={'medium'}
                   validate={{ regexp: /^[a-z]/i }}
                   style={{ borderBottom: 'solid 1px #888888' }}
                   component={TextInput}
@@ -84,13 +85,12 @@ class EditarEstudio extends Component {
                 direction={'row-responsive'}
                 gap={'large'}
                 pad={{ vertical: 'xsmall' }}
-                width={'large'}
               >
                 <FormField
                   label="DETALLE"
                   name="detalle"
                   required
-                  width={'large'}
+                  width={'medium'}
                   validate={{ regexp: /^[a-z]/i }}
                   style={{ borderBottom: 'solid 1px #888888' }}
                   component={TextArea}
@@ -106,7 +106,7 @@ class EditarEstudio extends Component {
                   label="INSTITUTO"
                   name="instituto"
                   required
-                  width={'large'}
+                  width={'medium'}
                   validate={{ regexp: /^[a-z]/i }}
                   style={{ borderBottom: 'solid 1px #888888' }}
                   component={TextInput}
@@ -117,10 +117,11 @@ class EditarEstudio extends Component {
                 direction={'row-responsive'}
                 gap={'large'}
                 pad={{ vertical: 'xsmall' }}
-                basis={'xsmall'}
               >
                 <FormField
                   size={'xsmall'}
+                  width={'medium'}
+
                   label="TIPO DE ESTUDIO"
                   name="tipo"
                   options={['Curso', 'Primario', 'Secundario', 'Terciario', 'Universitario']}
