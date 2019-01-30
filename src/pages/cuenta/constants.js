@@ -28,6 +28,7 @@ export const ME_ESTUDIOS = gql`
   query studies($idUser: String!) {
     studies(idUser: $idUser) {
       id
+      idUser
       titulo
       tipo
       instituto
@@ -41,9 +42,21 @@ export const ME_ESTUDIOS = gql`
   }
 `;
 
+export const CREATE_ESTUDIO = gql`
+  mutation createStudy($data: EstudioInput!, $idUser: String!) {
+    createStudy(data: $data, idUser: $idUser)
+  }
+`;
+
+export const DELETE_ESTUDIO = gql`
+  mutation deleteStudy($id: Int!, $idUser: String!) {
+    deleteStudy(id: $id, idUser: $idUser)
+  }
+`;
+
 export const UPDATE_ESTUDIO = gql`
-  mutation updateStudies($data: EstudioInput!, $idUser: String!) {
-    updateStudies(data: $data, idUser: $idUser)
+  mutation updateStudy($data: EstudioInput!, $idUser: String!) {
+    updateStudy(data: $data, idUser: $idUser)
   }
 `;
 

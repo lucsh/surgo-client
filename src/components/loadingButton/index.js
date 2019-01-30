@@ -4,12 +4,7 @@ import React, { Component } from 'react';
 
 class LoadingButton extends Component {
   render() {
-    console.log('props');
-
-    console.log(this.props);
-    console.log('/props');
     const { loading } = this.props;
-
     const extraProps = loading ? { icon: <LoadingIcon width={'20px'} /> } : {};
 
     return (
@@ -19,7 +14,6 @@ class LoadingButton extends Component {
         reverse
         primary
         style={{ fontWeight: 'bold' }}
-        label={'Actualizar Datos'}
         disabled={loading}
       />
     );

@@ -8,11 +8,7 @@ class Input extends Component {
 
   componentDidMount() {
     let { value } = this.props;
-    console.log('value en input cdi props', value);
-
     value = this.props.numeric ? this.toNumber(value) : value;
-    console.log('value en input cdi state', value);
-
     this.setState({
       value,
     });
@@ -30,11 +26,10 @@ class Input extends Component {
   onChange = (e) => {
     let value = e.target.value;
     value = this.props.numeric ? this.toNumber(value) : value;
-    console.log('valor: ', value);
-    this.props.onChange({ target: { value } });
     this.setState({
       value,
     });
+    this.props.onChange({ target: { value } });
   };
 
   render() {
@@ -46,8 +41,6 @@ class Input extends Component {
     if (this.props.numeric) {
       type = 'number';
     }
-
-    console.log('value en input render', this.state.value);
 
     return (
       <Box

@@ -1,29 +1,25 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Box } from 'grommet/es6/components/Box';
-import { Anchor, Button, Menu, Paragraph, Text } from 'grommet/es6';
+import { Menu, Text } from 'grommet/es6';
 import moment from 'moment';
 import theme from '../../../utils/theme';
 import { More } from 'grommet-icons';
+import { ME_ESTUDIOS } from '../../../pages/cuenta/constants';
 
 class Estudio extends Component {
-  // id
-  // idUser
-  // titulo
-  // tipo
-  // instituto
-  // detalle
-  // desde
-  // hasta
-  // duracionTotal
-  // duracionUnidad
-
   render() {
     const BRAND_COLOR = theme.global.colors['brand'];
 
-    const { estudio, editando } = this.props;
+    const eliminar = (value, mutation) => {
+      mutation({
+        variables: { id: value.id, idUser: value.idUser },
+        refetchQueries: [{ query: ME_ESTUDIOS, variables: { idUser: value.idUser } }],
+      });
+    };
+
+    const { estudio, editando, mutation } = this.props;
     const desde = moment(estudio.desde).format('Y');
     let hasta = moment(estudio.hasta);
-    // hasta = hasta.isValid() ? hasta.format('Y') : 'En Curso';
 
     let estado = estudio.estado;
     if (estado === 'Inconcluso' || estado === '') {
@@ -32,7 +28,7 @@ class Estudio extends Component {
     if (hasta.isValid()) {
       hasta = hasta.format('Y');
     } else {
-      hasta = '';
+      hasta = null;
       estado = 'En Curso';
     }
 
@@ -93,7 +89,7 @@ class Estudio extends Component {
                 {
                   label: 'Eliminar',
                   onClick: () => {
-                    this.props.eliminar(estudio);
+                    eliminar(estudio, mutation);
                   },
                 },
               ]}

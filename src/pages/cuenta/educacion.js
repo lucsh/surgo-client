@@ -1,41 +1,50 @@
 import React, { Component, Fragment } from 'react';
-import { ME_ESTUDIOS } from './constants';
-import { Query } from 'react-apollo';
+import { ME_ESTUDIOS, UPDATE_ESTUDIO, CREATE_ESTUDIO, DELETE_ESTUDIO } from './constants';
+import { Mutation, Query } from 'react-apollo';
+import { Box, Heading } from 'grommet/es6';
 
 import { i, l } from '../../utils/log';
 
 import ErrorComponent from '../../components/error';
+import SmallButton from '../../components/smallButton';
 import Estudio from '../../components/educacion/estudio';
 import EditarEstudio from '../../components/educacion/form';
-import { Heading } from 'grommet/es6';
 
 class Personales extends Component {
-  state = { editando: false };
+  constructor() {
+    super();
+    this.state = {
+      editando: false,
+      agregando: false,
+    };
+    this.updateParentState = this.updateParentState.bind(this);
+  }
+
+  updateParentState(key, value) {
+    this.setState({
+      [key]: value,
+    });
+  }
+
   editar = (estudio) => {
-    console.log('editar', estudio);
-    this.setState({ editando: estudio.id });
-    this.setState({ estudio });
+    this.setState({ estudio, editando: estudio.id });
   };
 
   eliminar = (id) => {
     console.log('eliminar', id);
   };
+
+  handleAgregar = () => {
+    console.log('handleAgregar');
+    this.setState({ agregando: true });
+  };
+
   render() {
     i('[RENDER : EDUCACION]');
-    // id
-    // id_user
-    // titulo
-    // tipo
-    // instituto
-    // detalle
-    // desde
-    // hasta
-    // duracion_total
-    // duracion_unidad
+    const { user } = this.props;
+    const idUser = user.id;
 
-    const idUser = this.props.user.id;
-
-    const { editando, estudio } = this.state;
+    const { editando, agregando, estudio } = this.state;
     return (
       <Fragment>
         <Query query={ME_ESTUDIOS} variables={{ idUser }} skip={!idUser}>
@@ -50,19 +59,32 @@ class Personales extends Component {
 
               return (
                 <Fragment>
+                  <Box align="end" alignSelf="end">
+                    <SmallButton
+                      type="button"
+                      label="+ Agregar"
+                      onClick={this.handleAgregar}
+                      color="brand"
+                    />
+                  </Box>
                   <Heading textAlign="start" alignSelf="start" level={3}>
                     Educacion
                   </Heading>
                   {studies.map((study) => {
                     if (study.tipo !== 'Curso') {
                       return (
-                        <Estudio
-                          key={study.id}
-                          estudio={study}
-                          eliminar={this.eliminar}
-                          editar={this.editar}
-                          editando={study.id === editando}
-                        />
+                        <Mutation key={study.id} mutation={DELETE_ESTUDIO}>
+                          {(deleteStudy, { loading, error }) => (
+                            <Estudio
+                              estudio={study}
+                              loading={loading}
+                              error={error}
+                              mutation={deleteStudy}
+                              editar={this.editar}
+                              editando={study.id === editando}
+                            />
+                          )}
+                        </Mutation>
                       );
                     }
                   })}
@@ -72,13 +94,18 @@ class Personales extends Component {
                   {studies.map((study) => {
                     if (study.tipo === 'Curso') {
                       return (
-                        <Estudio
-                          key={study.id}
-                          estudio={study}
-                          eliminar={this.eliminar}
-                          editar={this.editar}
-                          editando={study.id === editando}
-                        />
+                        <Mutation key={study.id} mutation={DELETE_ESTUDIO}>
+                          {(deleteStudy, { loading, error }) => (
+                            <Estudio
+                              estudio={study}
+                              loading={loading}
+                              error={error}
+                              mutation={deleteStudy}
+                              editar={this.editar}
+                              editando={study.id === editando}
+                            />
+                          )}
+                        </Mutation>
                       );
                     }
                   })}
@@ -88,7 +115,38 @@ class Personales extends Component {
             return null;
           }}
         </Query>
-        {editando && <EditarEstudio k={estudio.id} estudio={estudio} />}
+        {editando && (
+          <Mutation mutation={UPDATE_ESTUDIO}>
+            {(editStudy, { loading, error }) => (
+              <EditarEstudio
+                user={user}
+                k={estudio.id}
+                loading={loading}
+                error={error}
+                estudio={estudio}
+                mutation={editStudy}
+                formulario={'editando'}
+                updateParentState={this.updateParentState}
+              />
+            )}
+          </Mutation>
+        )}
+        {agregando && (
+          <Mutation mutation={CREATE_ESTUDIO}>
+            {(createStudy, { loading, error }) => (
+              <EditarEstudio
+                user={user}
+                k={'agregar'}
+                loading={loading}
+                error={error}
+                estudio={{}}
+                mutation={createStudy}
+                formulario={'agregando'}
+                updateParentState={this.updateParentState}
+              />
+            )}
+          </Mutation>
+        )}
       </Fragment>
     );
   }

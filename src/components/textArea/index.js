@@ -14,11 +14,10 @@ class InputArea extends Component {
 
   onChange = (e) => {
     let value = e.target.value;
-    console.log('valor: ', value);
-    this.props.onChange({ target: { value } });
     this.setState({
       value,
     });
+    this.props.onChange({ target: { value } });
   };
 
   render() {

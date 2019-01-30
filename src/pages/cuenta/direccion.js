@@ -15,8 +15,6 @@ class Personales extends Component {
     i('[RENDER : DIRECCION]');
 
     const saveEdit = (value, editMe, idUser) => {
-      console.log('idUser');
-      console.log(idUser);
       const data = {
         calle: value.calle,
         numero: value.numero,
@@ -60,7 +58,12 @@ class Personales extends Component {
                         },
                       }}
                     >
-                      <Box align="start" direction={'row-responsive'} gap={'large'} pad={{ vertical: 'xsmall' }}>
+                      <Box
+                        align="start"
+                        direction={'row-responsive'}
+                        gap={'large'}
+                        pad={{ vertical: 'xsmall' }}
+                      >
                         <FormField
                           label="CALLE"
                           name="calle"

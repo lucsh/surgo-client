@@ -15,8 +15,15 @@ class DateInput extends Component {
   state = { text: '' };
 
   componentDidMount() {
-    const parsedDate = moment(this.props.value).format('D-MM-Y');
-    this.setState({ text: parsedDate, date: this.props.value });
+    let date = this.props.value;
+    let parsedDate = moment(this.props.value);
+    if (parsedDate.isValid()) {
+      parsedDate = parsedDate.format('D-MM-Y');
+    } else {
+      parsedDate = '';
+      date = null;
+    }
+    this.setState({ text: parsedDate, date });
   }
 
   componentDidUpdate() {
@@ -95,6 +102,7 @@ class DateInput extends Component {
       <Box>
         <Keyboard onKeyDown={this.onKeyDown}>
           <TextInput
+            placeholder={'DD-MM-YYYY'}
             id="date-input"
             ref={(ref) => {
               this.ref = ref;
