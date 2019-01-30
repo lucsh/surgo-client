@@ -7,5 +7,5 @@ export const BACK_BUTTON = 'Volver';
 export const DEFAULT_ERROR = 'Disculpas, ocurrio un error';
 export const GENERAL_SALUDO = 'Bienvenido';
 export const GENERAL_ALERT = '';
-export const GENERAL_DESPEDIDA = 'Gracias por usar nuestro sistema \n ¡Te esperamos de vuelta pronto!';
-
+export const GENERAL_DESPEDIDA =
+  'Gracias por usar nuestro sistema \n ¡Te esperamos de vuelta pronto!';

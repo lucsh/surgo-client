@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Box, Button, ResponsiveContext, Text } from 'grommet';
+import { Box, ResponsiveContext, Text } from 'grommet';
 import MenuItem from '../../menuItem';
 
 // Redux

@@ -5,8 +5,8 @@ import { i, l } from '../../utils/log/index';
 
 // helper paths
 import { CLIENT, GENERAL_DESPEDIDA } from '../../constants/a11y';
-import history from '../../utils/history'
-import { LOGIN_PATH } from '../../constants/BaseConfig'
+import history from '../../utils/history';
+import { LOGIN_PATH } from '../../constants/BaseConfig';
 
 class Logout extends React.Component {
   constructor(props) {
@@ -38,5 +38,4 @@ class Logout extends React.Component {
   }
 }
 
-
-export default (Logout);
+export default Logout;

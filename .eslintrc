@@ -46,7 +46,7 @@
     "react/prop-types": 0,
     "react/no-direct-mutation-state": 0,
     "react/no-find-dom-node": 0,
-    "no-console" : 0,
+    "no-console" : 1,
     "no-unused-vars": [
       "warn",
       {
