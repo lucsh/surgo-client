@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ab7edcf-c1da-471a-ada9-9d8216fdda67" name="Default Changelist" comment="orphans">
-      <change afterPath="$PROJECT_DIR$/src/components/smallButton/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/educacion/estudio/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/educacion/estudio/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/educacion/form/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/educacion/form/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fechaMaskedInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fechaMaskedInput/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/loadingButton/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loadingButton/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navigation/header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navigation/header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navigation/header/navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navigation/header/navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/textArea/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/textArea/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/textInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/textInput/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/a11y.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/a11y.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/cuenta/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cuenta/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/cuenta/direccion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cuenta/direccion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/cuenta/educacion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cuenta/educacion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/cuenta/personales.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cuenta/personales.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -74,7 +60,7 @@
           <entry key="graphqls" value="2" />
           <entry key="html" value="9" />
           <entry key="ico" value="2" />
-          <entry key="js" value="613" />
+          <entry key="js" value="616" />
           <entry key="json" value="12" />
           <entry key="jsx" value="8" />
           <entry key="lock" value="1" />
@@ -96,7 +82,7 @@
           <entry key="Image" value="6" />
           <entry key="JSON" value="14" />
           <entry key="JSX Harmony" value="8" />
-          <entry key="JavaScript" value="613" />
+          <entry key="JavaScript" value="616" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="RNG Compact" value="1" />
@@ -113,7 +99,7 @@
           <entry key="env" value="8" />
           <entry key="eslintrc" value="14" />
           <entry key="html" value="6" />
-          <entry key="js" value="25395" />
+          <entry key="js" value="25398" />
           <entry key="json" value="91" />
           <entry key="svg" value="12" />
           <entry key="ts" value="1" />
@@ -126,7 +112,7 @@
           <entry key="GraphQL" value="23" />
           <entry key="HTML" value="6" />
           <entry key="JSON" value="105" />
-          <entry key="JavaScript" value="25363" />
+          <entry key="JavaScript" value="25366" />
           <entry key="Less" value="9" />
           <entry key="PLAIN_TEXT" value="7" />
           <entry key="SVG" value="12" />
@@ -159,11 +145,36 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/cuenta/direccion.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
               <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/logout/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#137#202#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/cuenta/laborales.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="83" column="22" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="84" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -225,13 +236,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/educacion/form/index.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/cuenta/personales.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="31" column="37" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="37" />
+            <state relative-caret-position="322">
+              <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
               <folding>
-                <element signature="e#1#42#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -248,7 +259,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>LOGOUT_PATH</find>
       <find>moment</find>
       <find>center</find>
       <find>s</find>
@@ -278,6 +288,7 @@
       <find>console</find>
       <find>deleteStudy</find>
       <find>editS</find>
+      <find>pad={'large'}</find>
     </findStrings>
     <replaceStrings>
       <replace>// isLoggedIn: state.auth.isLoggedIn,</replace>
@@ -329,7 +340,6 @@
         <option value="$PROJECT_DIR$/src/components/menuItem/index.js" />
         <option value="$PROJECT_DIR$/src/components/navigation/header/index.js" />
         <option value="$PROJECT_DIR$/src/components/navigation/header/dropMenu.js" />
-        <option value="$PROJECT_DIR$/src/pages/cuenta/personales.js" />
         <option value="$PROJECT_DIR$/src/pages/cuenta/index.js" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_7.es6" />
         <option value="$PROJECT_DIR$/src/components/editMe/fechaNacimientoMaskedInput/index.js" />
@@ -348,6 +358,7 @@
         <option value="$PROJECT_DIR$/src/components/educacion/estudio/index.js" />
         <option value="$PROJECT_DIR$/src/components/navigation/header/navigation.js" />
         <option value="$PROJECT_DIR$/src/pages/cuenta/direccion.js" />
+        <option value="$PROJECT_DIR$/src/pages/cuenta/personales.js" />
       </list>
     </option>
   </component>
@@ -394,49 +405,6 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="fechaMaskedInput" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="loadingButton" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="navigation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="header" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="selectWithSearch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="textInput" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="client" type="b2602c69:ProjectViewProjectNode" />
@@ -543,7 +511,7 @@
       <workItem from="1547902805923" duration="40357000" />
       <workItem from="1548183813745" duration="5726000" />
       <workItem from="1548507197977" duration="25181000" />
-      <workItem from="1548542324718" duration="35560000" />
+      <workItem from="1548542324718" duration="35741000" />
     </task>
     <task id="LOCAL-00001" summary="orphans">
       <created>1548104206760</created>
@@ -556,7 +524,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200852000" />
+    <option name="totallyTimeSpent" value="201033000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -606,29 +574,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/layout/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
-          <folding>
-            <element signature="e#70#115#0" expanded="true" />
-            <element signature="e#178#220#0" expanded="true" />
-            <element signature="e#384#423#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/logout/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#137#202#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/notificacion/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -832,16 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/cuenta/personales.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="258" column="24" selection-start-line="258" selection-start-column="24" selection-end-line="266" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1049,6 +984,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/logout/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#137#202#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/cuenta/laborales.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="83" column="22" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="84" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/cuenta/personales.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

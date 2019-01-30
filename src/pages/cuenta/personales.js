@@ -58,7 +58,7 @@ class Personales extends Component {
             return (
               <Mutation mutation={UPDATE_ME}>
                 {(editMe, { loading, error }) => (
-                  <Box align="start" direction={'row-responsive'} gap={'large'} pad={'large'}>
+                  <Box align="start" direction={'row-responsive'} gap={'large'} >
                     <Form
                       onSubmit={({ value }) => saveEdit(value, editMe, meData.idUser)}
                       value={{
