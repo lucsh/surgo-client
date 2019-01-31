@@ -21,7 +21,10 @@ class Personales extends Component {
         observaciones: value.observaciones,
         idLocalidad: value.provinciaLocalidad.localidad.id,
       };
-      editMe({ variables: { data, idUser }, refetchQueries: [{ query: READ_DIRECCION }] });
+      editMe({
+        variables: { data, idUser },
+        refetchQueries: [{ query: READ_DIRECCION, variables: { idUser } }],
+      });
     };
     const idUser = this.props.user.id;
     return (
@@ -29,7 +32,7 @@ class Personales extends Component {
         <Query query={READ_DIRECCION} variables={{ idUser }} skip={!idUser}>
           {(respuesta) => {
             if (respuesta.loading) return <p>Cargando...</p>;
-            if (respuesta.data && respuesta.data.address === null) {
+            if (respuesta.error || (respuesta.data && respuesta.data.address === null)) {
               return <ErrorComponent />;
             }
             if (!respuesta.error) {
