@@ -6,7 +6,7 @@ class LoadingButton extends Component {
     return (
       <Box
         background={{ color: 'brand' }}
-        round="xsmall"
+        round="small"
         pad={{ horizontal: 'xsmall', vertical: '1px' }}
       >
         <Button {...this.props} plain style={{ color: 'white' }} />
