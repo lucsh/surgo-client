@@ -22,8 +22,8 @@ class Estudio extends Component {
     let hasta = moment(estudio.hasta);
 
     let estado = estudio.estado;
-    if (estado === 'Inconcluso' || estado === '') {
-      estado = 'Inconcluso';
+    if (estado === 'Incompleto' || estado === '') {
+      estado = 'Incompleto';
     }
     if (hasta.isValid()) {
       hasta = hasta.format('Y');

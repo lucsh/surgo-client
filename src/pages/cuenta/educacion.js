@@ -30,9 +30,6 @@ class Educacion extends Component {
     this.setState({ estudio, editando: estudio.id });
   };
 
-  eliminar = (id) => {
-    console.log('eliminar', id);
-  };
 
   handleAgregar = () => {
     console.log('handleAgregar');
@@ -46,7 +43,7 @@ class Educacion extends Component {
 
     const { editando, agregando, estudio } = this.state;
     return (
-      <Fragment>
+      <Box align="center" alignSelf="center" width="large">
         <Query query={READ_ESTUDIOS} variables={{ idUser }} skip={!idUser}>
           {(respuesta) => {
             if (respuesta.loading) return <p>Cargando...</p>;
@@ -54,7 +51,6 @@ class Educacion extends Component {
               return <ErrorComponent />;
             }
             if (!respuesta.error) {
-              l(respuesta.data.address, 'address');
               const { studies } = respuesta.data;
 
               return (
@@ -68,7 +64,7 @@ class Educacion extends Component {
                     />
                   </Box>
                   <Heading textAlign="start" alignSelf="start" level={3}>
-                    Educacion
+                    Educación
                   </Heading>
                   {studies.map((study) => {
                     if (study.tipo !== 'Curso') {
@@ -147,7 +143,7 @@ class Educacion extends Component {
             )}
           </Mutation>
         )}
-      </Fragment>
+      </Box>
     );
   }
 }

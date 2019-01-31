@@ -194,7 +194,7 @@ class EditarEstudio extends Component {
               size={'small'}
               label="ESTADO"
               name="estado"
-              options={['Terminado', 'Inconcluso']}
+              options={['Terminado', 'Incompleto']}
               required
               icon
               component={GroupedButtonsSelect}

@@ -10,7 +10,7 @@ import Laborales from './laborales';
 
 class Index extends Component {
   state = {
-    index: 2,
+    index: 3,
   };
 
   onActive = (index) => this.setState({ index });
@@ -23,6 +23,9 @@ class Index extends Component {
     const { user } = this.props;
 
     // ToDo: Cambiar la validacion (required)
+    // ToDo: Verificar usuarios nuevos
+    // ToDo: AUTOFOCUS
+    // ToDo: UPSERT DIRECCION
     // ToDo: Agregar campo para subir foto
     // ToDo: El dato de nivel de estudio debería ser dinamico desde la tabla `user_educacion`
     // ToDo: ^ O bien, puede marcarlo acá y en educación, salir una notificación que le pida que cargue mas datos
