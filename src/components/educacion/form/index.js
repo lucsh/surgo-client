@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Box, Form, FormField, Select, Button } from 'grommet/es6';
 
-import { ME_ESTUDIOS } from '../../../pages/cuenta/constants';
+import { READ_ESTUDIOS } from '../../../pages/cuenta/constants';
 import TextInput from '../../textInput';
 import TextArea from '../../textArea';
 import LoadingButton from '../../loadingButton';
@@ -44,7 +44,7 @@ class EditarEstudio extends Component {
       };
       mutation({
         variables: { data, idUser },
-        refetchQueries: [{ query: ME_ESTUDIOS, variables: { idUser } }],
+        refetchQueries: [{ query: READ_ESTUDIOS, variables: { idUser } }],
       }).then(() => {
         this.props.updateParentState(this.props.formulario, false);
       });

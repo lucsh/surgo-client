@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { ME_ESTUDIOS, UPDATE_ESTUDIO, CREATE_ESTUDIO, DELETE_ESTUDIO } from './constants';
+import { READ_ESTUDIOS, UPDATE_ESTUDIO, CREATE_ESTUDIO, DELETE_ESTUDIO } from './constants';
 import { Mutation, Query } from 'react-apollo';
 import { Box, Heading } from 'grommet/es6';
 
@@ -10,7 +10,7 @@ import SmallButton from '../../components/smallButton';
 import Estudio from '../../components/educacion/estudio';
 import EditarEstudio from '../../components/educacion/form';
 
-class Personales extends Component {
+class Educacion extends Component {
   constructor() {
     super();
     this.state = {
@@ -47,7 +47,7 @@ class Personales extends Component {
     const { editando, agregando, estudio } = this.state;
     return (
       <Fragment>
-        <Query query={ME_ESTUDIOS} variables={{ idUser }} skip={!idUser}>
+        <Query query={READ_ESTUDIOS} variables={{ idUser }} skip={!idUser}>
           {(respuesta) => {
             if (respuesta.loading) return <p>Cargando...</p>;
             if (respuesta.data && respuesta.data.address === null) {
@@ -152,4 +152,4 @@ class Personales extends Component {
   }
 }
 
-export default Personales;
+export default Educacion;

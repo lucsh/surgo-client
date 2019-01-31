@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ME_DIRECCION, UPDATE_DIRECCION } from './constants';
+import { READ_DIRECCION, UPDATE_DIRECCION } from './constants';
 import { Box, Form, FormField } from 'grommet/es6';
 import { Query, Mutation } from 'react-apollo';
 
@@ -21,11 +21,11 @@ class Personales extends Component {
         observaciones: value.observaciones,
         idLocalidad: value.provinciaLocalidad.localidad.id,
       };
-      editMe({ variables: { data, idUser }, refetchQueries: [{ query: ME_DIRECCION }] });
+      editMe({ variables: { data, idUser }, refetchQueries: [{ query: READ_DIRECCION }] });
     };
     const idUser = this.props.user.id;
     return (
-      <Query query={ME_DIRECCION} variables={{ idUser }} skip={!idUser}>
+      <Query query={READ_DIRECCION} variables={{ idUser }} skip={!idUser}>
         {(respuesta) => {
           if (respuesta.loading) return <p>Cargando...</p>;
           if (respuesta.data && respuesta.data.address === null) {

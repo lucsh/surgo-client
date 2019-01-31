@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ME_DATA, UPDATE_ME } from './constants';
+import { READ_ME_DATA, UPDATE_ME } from './constants';
 import { Box, Form, FormField } from 'grommet/es6';
 import { Query, Mutation } from 'react-apollo';
 
@@ -41,11 +41,11 @@ class Personales extends Component {
 
         tieneLicencia: value.tieneLicencia.checked,
       };
-      editMe({ variables: { data, idUser }, refetchQueries: [{ query: ME_DATA }] });
+      editMe({ variables: { data, idUser }, refetchQueries: [{ query: READ_ME_DATA }] });
     };
 
     return (
-      <Query query={ME_DATA}>
+      <Query query={READ_ME_DATA}>
         {(respuesta) => {
           if (respuesta.loading) return <p>Cargando...</p>;
           if (respuesta.data && respuesta.data.meData === null) {

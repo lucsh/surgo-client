@@ -4,7 +4,7 @@ import { Menu, Text } from 'grommet/es6';
 import moment from 'moment';
 import theme from '../../../utils/theme';
 import { More } from 'grommet-icons';
-import { ME_ESTUDIOS } from '../../../pages/cuenta/constants';
+import { READ_ESTUDIOS } from '../../../pages/cuenta/constants';
 
 class Estudio extends Component {
   render() {
@@ -13,7 +13,7 @@ class Estudio extends Component {
     const eliminar = (value, mutation) => {
       mutation({
         variables: { id: value.id, idUser: value.idUser },
-        refetchQueries: [{ query: ME_ESTUDIOS, variables: { idUser: value.idUser } }],
+        refetchQueries: [{ query: READ_ESTUDIOS, variables: { idUser: value.idUser } }],
       });
     };
 
