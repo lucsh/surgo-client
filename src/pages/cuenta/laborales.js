@@ -26,12 +26,8 @@ class Laborales extends Component {
     });
   }
 
-  editar = (estudio) => {
-    this.setState({ estudio, editando: estudio.id });
-  };
-
-  eliminar = (id) => {
-    console.log('eliminar', id);
+  editar = (trabajo) => {
+    this.setState({ trabajo, editando: trabajo.id });
   };
 
   handleAgregar = () => {
@@ -40,13 +36,13 @@ class Laborales extends Component {
   };
 
   render() {
-    i('[RENDER : EDUCACION]');
+    i('[RENDER : LABORAL]');
     const { user } = this.props;
     const idUser = user.id;
 
     const { editando, agregando, trabajo } = this.state;
     return (
-      <Fragment>
+      <Box align="center" alignSelf="center" width="large">
         <Query query={READ_TRABAJOS} variables={{ idUser }} skip={!idUser}>
           {(respuesta) => {
             if (respuesta.loading) return <p>Cargando...</p>;
@@ -54,7 +50,7 @@ class Laborales extends Component {
               return <ErrorComponent />;
             }
             if (!respuesta.error) {
-              l(respuesta.data.address, 'address');
+              l(respuesta.data, 'respuesta');
               const { jobs } = respuesta.data;
 
               return (
@@ -68,7 +64,7 @@ class Laborales extends Component {
                     />
                   </Box>
                   <Heading textAlign="start" alignSelf="start" level={3}>
-                    Educacion
+                    Experiencia Laboral
                   </Heading>
                   {jobs.map((job) => {
                     return (
@@ -124,7 +120,7 @@ class Laborales extends Component {
             )}
           </Mutation>
         )}
-      </Fragment>
+      </Box>
     );
   }
 }

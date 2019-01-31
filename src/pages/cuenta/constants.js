@@ -64,15 +64,12 @@ export const READ_TRABAJOS = gql`
     jobs(idUser: $idUser) {
       id
       idUser
-      titulo
-      tipo
-      instituto
+      puesto
+      empresa
       detalle
       desde
       hasta
-      duracionTotal
-      duracionUnidad
-      estado
+      duracion
     }
   }
 `;
