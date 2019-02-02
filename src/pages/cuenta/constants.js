@@ -42,6 +42,11 @@ export const READ_ESTUDIOS = gql`
   }
 `;
 
+export const UPDATE_AVATAR = gql`
+  mutation uploadAvatar($file: Upload!, $idUser: String!) {
+    uploadAvatar(file: $file, idUser: $idUser)
+  }
+`;
 export const CREATE_ESTUDIO = gql`
   mutation createStudy($data: EstudioInput!, $idUser: String!) {
     createStudy(data: $data, idUser: $idUser)

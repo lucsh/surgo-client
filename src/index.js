@@ -11,11 +11,11 @@ import { Provider } from 'react-redux';
 
 // Apollo Graphql
 import { onError } from 'apollo-link-error';
-import { HttpLink } from 'apollo-link-http';
 import { ApolloClient } from 'apollo-client';
 import { ApolloLink, from } from 'apollo-link';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider, withApollo } from 'react-apollo';
+import { createUploadLink } from 'apollo-upload-client';
 
 import { SERVER_API } from './constants/BaseConfig';
 
@@ -26,7 +26,7 @@ const store = createStore(
 );
 
 // APOLLO GRAPHQL
-const httpLink = new HttpLink({ uri: SERVER_API, credentials: 'include' });
+const httpLink = createUploadLink({ uri: SERVER_API, credentials: 'include' });
 
 const logoutLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
@@ -53,7 +53,6 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 
 const client = new ApolloClient({
   link: from([authMiddleware, logoutLink, httpLink]),
-  //link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
