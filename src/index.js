@@ -17,6 +17,10 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider, withApollo } from 'react-apollo';
 import { createUploadLink } from 'apollo-upload-client';
 
+// Styles
+
+import './utils/style/styles.css';
+
 import { SERVER_API } from './constants/BaseConfig';
 
 // REDUX

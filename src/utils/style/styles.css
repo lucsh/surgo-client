@@ -1,0 +1,36 @@
+/* Avatar */
+.avatar-box .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  background: rgba(200, 200, 200, 0.6);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.avatar-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.avatar-box:hover .overlay {
+  display: flex;
+  position: absolute;
+}
+
+.avatar {
+  box-sizing: border-box;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #a3a3a3;
+  border-radius: 50%;
+}

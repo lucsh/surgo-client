@@ -2,12 +2,11 @@ import React, { Component, Fragment } from 'react';
 import { READ_ME_DATA, UPDATE_AVATAR, UPDATE_ME } from './constants';
 import { Box, Form, FormField } from 'grommet/es6';
 import { Query, Mutation } from 'react-apollo';
-import Avatar from 'react-avatar-edit';
 
 import { i, l } from '../../utils/log';
-import { base64ToImage } from './helpers/avatar';
 
 import ErrorComponent from '../../components/error';
+import UpdateAvatar from '../../components/editMe/avatar/update';
 import LoadingButton from '../../components/loadingButton';
 import DniMaskedInput from '../../components/editMe/dniMaskedInput';
 import EmailMaskedInput from '../../components/editMe/emailMaskedInput';
@@ -18,9 +17,6 @@ import GroupedButtonsSelect from '../../components/groupedButtonsSelect';
 import GeneroSelect from '../../components/editMe/generoSelect';
 
 class Personales extends Component {
-  state = {
-    preview: null,
-  };
   render() {
     i('[RENDER : PERSONALES]');
 
@@ -49,19 +45,6 @@ class Personales extends Component {
       editMe({ variables: { data, idUser }, refetchQueries: [{ query: READ_ME_DATA }] });
     };
 
-    const onCropAvatar = (preview) => {
-      console.log(preview);
-      this.setState({ preview });
-    };
-
-    const onCloseAvatar = () => {
-      this.setState({ preview: null });
-    };
-
-    const uploadAvatarHandler = () => {
-      console.log(this.state.preview);
-    };
-
     return (
       <Box align="center" alignSelf="center" width="large">
         <Query query={READ_ME_DATA}>
@@ -73,54 +56,20 @@ class Personales extends Component {
             if (!respuesta.error) {
               l(respuesta.data.meData, 'me data');
               const { meData } = respuesta.data;
-              // this.setState({ meData });
               return (
                 <Fragment>
                   <Mutation mutation={UPDATE_AVATAR}>
-                    {(uploadFile, { loading }) => (
-                      <Box
-                        align="center"
-                        direction={'row-responsive'}
-                        alignSelf="center"
-                        width="xlarge"
-                      >
-                        <Avatar
-                          label="Seleecioná una foto"
-                          width={190}
-                          height={190}
-                          onCrop={onCropAvatar}
-                          onClose={onCloseAvatar}
-                        />
-                        <img
-                          alt=""
-                          style={{ width: '150px', height: '150px' }}
-                          src={this.state.preview}
-                        />
-                        <Box
-                          direction="row"
-                          justify="end"
-                          margin={{ top: 'medium', bottom: 'meddium' }}
-                          pad={{ vertical: 'xsmall' }}
-                        >
-                          <LoadingButton
-                            type="submit"
-                            reverse
-                            loading={loading}
-                            primary
-                            label={'Cambiar imagen de perfil'}
-                            onClick={() =>
-                              uploadFile({
-                                variables: {
-                                  file: base64ToImage(this.state.preview),
-                                  idUser: meData.idUser,
-                                },
-                              })
-                            }
-                          />
-                        </Box>
-                      </Box>
+                    {(uploadFile, { loading, error }) => (
+                      <UpdateAvatar
+                        idUser={meData.idUser}
+                        mutation={uploadFile}
+                        loading={loading}
+                        error={error}
+                        avatar={meData.avatar}
+                      />
                     )}
                   </Mutation>
+
                   <Mutation mutation={UPDATE_ME}>
                     {(editMe, { loading, error }) => (
                       <Box align="center" direction={'row-responsive'} gap={'large'}>
@@ -153,29 +102,59 @@ class Personales extends Component {
                           <Box
                             align="start"
                             direction={'row-responsive'}
+                            // width="large"
+                            margin={{ left: '-70px' }}
                             gap={'large'}
                             pad={{ vertical: 'xsmall' }}
                           >
-                            <FormField
-                              label="APELLIDO"
-                              name="apellido"
-                              required
-                              validate={{ regexp: /^[a-z]/i }}
-                              style={{ borderBottom: 'solid 1px #888888' }}
-                              component={TextInput}
-                            />
+                            <Box align="start" gap="small">
+                              <div className={'avatar-box'}>
+                                <img
+                                  alt="Foto de perfil"
+                                  className={'avatar'}
+                                  src={meData.avatar}
+                                />
+                                <div className="overlay">
+                                  <span>Cambiar Imagen</span>
+                                </div>
+                              </div>
+                            </Box>
+                            <Box direction={'column'}>
+                              <Box direction={'row'} gap="small">
+                                <FormField
+                                  label="APELLIDO"
+                                  name="apellido"
+                                  required
+                                  validate={{ regexp: /^[a-z]/i }}
+                                  style={{
+                                    borderBottom: 'solid 1px #888888',
+                                    alignSelf: 'flex-end',
+                                  }}
+                                  component={TextInput}
+                                />
 
-                            <FormField
-                              label="NOMBRE"
-                              name="nombre"
-                              required
-                              validate={{ regexp: /^[a-z]/i }}
-                              style={{ borderBottom: 'solid 1px #888888' }}
-                              component={TextInput}
-                            />
+                                <FormField
+                                  label="NOMBRE"
+                                  name="nombre"
+                                  required
+                                  validate={{ regexp: /^[a-z]/i }}
+                                  style={{
+                                    borderBottom: 'solid 1px #888888',
+                                    alignSelf: 'flex-end',
+                                  }}
+                                  component={TextInput}
+                                />
+                              </Box>
+                              <FormField
+                                size={'small'}
+                                name="dniCuil"
+                                component={DniMaskedInput}
+                                responsive
+                              />
+                            </Box>
                           </Box>
                           <Box
-                            align="start"
+                            align="center"
                             direction={'row-responsive'}
                             gap={'large'}
                             pad={{ vertical: 'xsmall' }}
@@ -186,6 +165,16 @@ class Personales extends Component {
                               name="paisOrigen"
                               required
                               validate={{ regexp: /^[a-z]/i }}
+                              style={{ borderBottom: 'solid 1px #888888' }}
+                              component={TextInput}
+                            />
+                            <FormField
+                              size={'small'}
+                              label="HIJOS"
+                              name="hijos"
+                              required
+                              numeric
+                              validate={{ regexp: /^[0-9]/i }}
                               style={{ borderBottom: 'solid 1px #888888' }}
                               component={TextInput}
                             />
@@ -204,23 +193,6 @@ class Personales extends Component {
                               required
                               component={GroupedButtonsSelect}
                               plain
-                            />
-                          </Box>
-                          <Box
-                            align="start"
-                            direction={'row-responsive'}
-                            gap={'large'}
-                            pad={{ vertical: 'xsmall' }}
-                          >
-                            <FormField
-                              size={'small'}
-                              label="HIJOS"
-                              name="hijos"
-                              required
-                              numeric
-                              validate={{ regexp: /^[0-9]/i }}
-                              style={{ borderBottom: 'solid 1px #888888' }}
-                              component={TextInput}
                             />
                           </Box>
                           <Box
@@ -253,12 +225,6 @@ class Personales extends Component {
                               bounds={['1918-12-31', '2010-12-31']}
                               style={{ borderBottom: 'solid 1px #888888' }}
                               component={FechaNacimientoMaskedInput}
-                            />
-                            <FormField
-                              size={'small'}
-                              name="dniCuil"
-                              component={DniMaskedInput}
-                              responsive
                             />
                           </Box>
 

@@ -20,6 +20,7 @@ export const READ_ME_DATA = gql`
       telefono
       cuil
       tieneLicencia
+      avatar
     }
   }
 `;
