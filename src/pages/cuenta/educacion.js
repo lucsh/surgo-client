@@ -3,7 +3,7 @@ import { READ_ESTUDIOS, UPDATE_ESTUDIO, CREATE_ESTUDIO, DELETE_ESTUDIO } from '.
 import { Mutation, Query } from 'react-apollo';
 import { Box, Heading } from 'grommet/es6';
 
-import { i, l } from '../../utils/log';
+import { i } from '../../utils/log';
 
 import ErrorComponent from '../../components/error';
 import SmallButton from '../../components/smallButton';
@@ -29,7 +29,6 @@ class Educacion extends Component {
   editar = (estudio) => {
     this.setState({ estudio, editando: estudio.id });
   };
-
 
   handleAgregar = () => {
     console.log('handleAgregar');
