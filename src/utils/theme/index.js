@@ -26,6 +26,7 @@ const colors = {
   focus: '#0096d7',
 };
 
+
 const colorArray = (array, prefix) =>
   array.forEach((color, index) => {
     colors[`${prefix}-${index + 1}`] = color;
@@ -39,6 +40,17 @@ Object.keys(statusColors).forEach((color) => {
 
 const surgo = deepFreeze({
   global: {
+    breakpoints: {
+      xsmall: {
+        value: 375,
+      },
+      small: {
+        value: 667,
+      },
+      medium: {
+        value: 1536,
+      },
+    },
     font: {
       family: 'Inter UI var alt, sans-serif;',
       size: '14px',

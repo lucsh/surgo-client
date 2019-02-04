@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Box, Button } from 'grommet/es6';
+import { Box, Button, ResponsiveContext } from 'grommet/es6';
 import theme from '../../utils/theme';
 import { CheckboxSelected } from 'grommet-icons';
 
@@ -35,44 +35,61 @@ class GroupedButtonsSelect extends Component {
         fontWeight: 600,
         color: 'white',
       },
+      xsmall: {
+        margin: '-1px',
+        border: `2px solid ${COLOR}`,
+        borderLeft: 'inherith',
+        borderRadius: 0,
+      },
     };
 
     return (
-      <Box {...this.props} direction="row" align="center" flex="shrink" gap="none" pad="xsmall">
-        {options.map((option, index, array) => {
-          const isSelected = value === option;
-          let aditionalStyles;
+      <ResponsiveContext.Consumer>
+        {(size) => (
+          <Box
+            {...this.props}
+            direction="row-responsive"
+            align="center"
+            flex="shrink"
+            gap="none"
+            pad="xsmall"
+          >
+            {options.map((option, index, array) => {
+              const isSelected = value === option;
+              let aditionalStyles;
 
-          if (index === 0) {
-            aditionalStyles = buttonStyles.first;
-          }
-          if (index === array.length - 1) {
-            aditionalStyles = buttonStyles.last;
-          }
-
-          if (isSelected) aditionalStyles = { ...aditionalStyles, ...buttonStyles.selected };
-
-          return (
-            <Button
-              style={{ ...buttonStyles.common, ...aditionalStyles }}
-              hoverIndicator
-              size={'xsmall'}
-              key={option}
-              value={option}
-              label={option}
-              plain
-              color={'brand'}
-              primary={isSelected}
-              icon={
-                this.props.icon && isSelected ? (
-                  <CheckboxSelected size="small" color="white" />
-                ) : null
+              if (index === 0) {
+                aditionalStyles = buttonStyles.first;
               }
-              onClick={(e) => onChange(e, option)}
-            />
-          );
-        })}
-      </Box>
+              if (index === array.length - 1) {
+                aditionalStyles = buttonStyles.last;
+              }
+
+              if (isSelected) aditionalStyles = { ...aditionalStyles, ...buttonStyles.selected };
+
+              return (
+                <Button
+                  key={option}
+                  style={{ ...buttonStyles.common, ...aditionalStyles, ...buttonStyles[size] }}
+                  hoverIndicator
+                  size={'xsmall'}
+                  value={option}
+                  label={option}
+                  plain
+                  color={'brand'}
+                  primary={isSelected}
+                  icon={
+                    this.props.icon && isSelected ? (
+                      <CheckboxSelected size="small" color="white" />
+                    ) : null
+                  }
+                  onClick={(e) => onChange(e, option)}
+                />
+              );
+            })}
+          </Box>
+        )}
+      </ResponsiveContext.Consumer>
     );
   }
 }

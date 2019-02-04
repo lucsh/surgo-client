@@ -20,6 +20,7 @@ import { createUploadLink } from 'apollo-upload-client';
 // Styles
 
 import './utils/style/styles.css';
+import './utils/style/animado.css';
 
 import { SERVER_API } from './constants/BaseConfig';
 

@@ -38,7 +38,13 @@ class Index extends Component {
         onActive={this.onActive}
       >
         <Tab title="Datos Personales">
-          <Box margin="small" pad="small" align="center">
+          <Box
+            margin="small"
+            pad="small"
+            align="center"
+            responsive={true}
+            direction={'row-responsive'}
+          >
             <Personales user={user} />
           </Box>
         </Tab>

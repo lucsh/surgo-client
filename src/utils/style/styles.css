@@ -3,8 +3,9 @@
   position: absolute;
   left: 0;
   top: 0;
-  display: none;
-  background: rgba(200, 200, 200, 0.6);
+  background: rgba(200, 200, 200, 0.75);
+  display: flex;
+  opacity: 0;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
@@ -12,6 +13,8 @@
   height: 150px;
   z-index: 100;
   cursor: pointer;
+  flex-direction: column;
+  font-weight: 600;
 }
 
 .avatar-box {
@@ -23,6 +26,7 @@
 }
 
 .avatar-box:hover .overlay {
+  opacity: 1;
   display: flex;
   position: absolute;
 }
@@ -33,4 +37,50 @@
   height: 150px;
   border: 2px solid #a3a3a3;
   border-radius: 50%;
+}
+
+/* Grouped Buttons*/
+
+@media (min-width: 700px) {
+  .dr-breakout-btn {
+    display: none;
+  }
+  .dr-breakout {
+    display: inline;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    position: relative;
+    margin: 0;
+  }
+  .dr-breakout li {
+    display: inline;
+  }
+  .dr-breakout li a {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #507281;
+  }
+}
+
+.btn-group {
+  left: 40%;
+  margin: 50px 0;
 }

@@ -39,6 +39,7 @@ class GeneroSelect extends Component {
     return (
       <Box direction="row" basis="full" align="center" justify="between" pad="none">
         <GroupedButtonsSelect
+          icon
           {...this.props}
           value={this.state.select}
           onChange={this.onChangeSelect}
