@@ -55,7 +55,7 @@ class Educacion extends Component {
               break;
           }
           return (
-            <Box align="center" alignSelf="center" width={width}>
+            <Box align="center" alignSelf="center" width={width} animation="slideLeft">
               <Query query={READ_ESTUDIOS} variables={{ idUser }} skip={!idUser}>
                 {(respuesta) => {
                   if (respuesta.loading) return <p>Cargando...</p>;

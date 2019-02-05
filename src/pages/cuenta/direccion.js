@@ -28,7 +28,7 @@ class Personales extends Component {
     };
     const idUser = this.props.user.id;
     return (
-      <Box align="center" alignSelf="center" width="size" animation={'slideRight'}>
+      <Box align="center" alignSelf="center" width="size" animation="slideLeft">
         <Query query={READ_DIRECCION} variables={{ idUser }} skip={!idUser}>
           {(respuesta) => {
             if (respuesta.loading) return <p>Cargando...</p>;

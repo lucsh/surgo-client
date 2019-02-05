@@ -70,7 +70,7 @@ class Personales extends Component {
 
     const { mostrarUploadAvatar } = this.state;
     return (
-      <Box align="center" alignSelf="center" direction={'row-responsive'} animation={'slideRight'}>
+      <Box align="center" alignSelf="center" direction="row-responsive" animation="slideLeft">
         <ResponsiveContext.Consumer>
           {(size) => {
             let width = 'large';
