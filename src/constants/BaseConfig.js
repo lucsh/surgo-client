@@ -9,3 +9,4 @@ export const VERIFICATION_PATH = '/verify/:email/:verificationToken';
 // Apps spec
 export const DASHBOARD_PATH = '/escritorio';
 export const CUENTA_PATH = '/cuenta';
+export const PERSONA_PATH = '/persona';
