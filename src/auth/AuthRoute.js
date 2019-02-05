@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
+import AccessDenied from '../components/accessDenied';
+
 import { LOGIN_PATH } from '../constants/BaseConfig';
 import { i } from '../utils/log';
 
@@ -13,12 +15,18 @@ class AuthRoute extends React.Component {
     i(`[EVENT: AUTENTICAR / AUTORIZAR]`);
   }
 
-  safeRender(props) {
-    const { component: Component, isLoggedIn, user } = this.props;
+  safeRender(props, isLoggedIn, access, user) {
+    const { component: Component } = this.props;
     i('[SAFE RENDER]');
-    i(isLoggedIn);
-    i(user);
+    i(`isLoggedIn: ${isLoggedIn}`);
+    i(`user: ${user}`);
+    const isAdmin = user.roles.includes('superuser') || user.roles.includes('admin');
+    if (access === 'private' && !isAdmin) {
+      i('access');
+      i('private');
 
+      return <AccessDenied />;
+    }
     if (isLoggedIn) {
       i('isLoggedIn');
       return <Component {...props} user={user} />;
@@ -29,8 +37,9 @@ class AuthRoute extends React.Component {
   }
 
   render() {
-    // const { ...rest } = this.props;
-    return <Route render={this.safeRender} />;
+    const { isLoggedIn, user, access } = this.props;
+
+    return <Route render={(props) => this.safeRender(props, isLoggedIn, access, user)} />;
   }
 }
 

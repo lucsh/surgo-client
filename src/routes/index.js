@@ -10,6 +10,7 @@ import Login from '../pages/login';
 import Logout from '../pages/logout';
 import Verify from '../pages/verify';
 import Cuenta from '../pages/cuenta';
+import Persona from '../pages/persona';
 import General from '../pages/general';
 import NoMatch from '../components/noMatch';
 
@@ -20,15 +21,15 @@ import {
   VERIFICATION_PATH,
   DASHBOARD_PATH,
   CUENTA_PATH,
+  PERSONA_PATH,
 } from '../constants/BaseConfig';
 
-import { i } from '../utils/log';
+import { i, l } from '../utils/log';
 
 class Routes extends React.Component {
   render() {
     const { isLoggedIn, user } = this.props;
-
-    // console.log({isLoggedIn});
+    l(user, 'usuario', this);
     i('[EVENT] ROUTER');
 
     let RouterSetup;
@@ -49,6 +50,7 @@ class Routes extends React.Component {
 
           <AuthRoute isLoggedIn={isLoggedIn} path={DASHBOARD_PATH} component={General} />
           <AuthRoute isLoggedIn={isLoggedIn} path={CUENTA_PATH} component={Cuenta} user={user} />
+          <AuthRoute access={"private"} isLoggedIn={isLoggedIn} path={PERSONA_PATH} component={Persona} user={user} />
 
           <Route exact component={NoMatch} />
         </Switch>
