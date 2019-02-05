@@ -4,7 +4,7 @@ import { Box, Heading, Paragraph } from 'grommet/es6';
 class NoMatch extends Component {
   render() {
     return (
-      <Box alignContent="between" pad="large" full="true" fill={'horizontal'}>
+      <Box align="end"  alignContent="between" pad="large" full="true" fill={'horizontal'}>
         <Heading level={1} margin="none" alignSelf="start" color={'lightGrey'}>
           #404
         </Heading>
