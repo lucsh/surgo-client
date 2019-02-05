@@ -16,8 +16,8 @@ class AuthRoute extends React.Component {
   safeRender(props) {
     const { component: Component, isLoggedIn, user } = this.props;
     i('[SAFE RENDER]');
-    console.log({ isLoggedIn });
-    console.log({ user });
+    i(isLoggedIn);
+    i(user);
 
     if (isLoggedIn) {
       i('isLoggedIn');

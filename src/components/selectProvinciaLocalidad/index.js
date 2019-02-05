@@ -9,14 +9,12 @@ import SelectWithSearch from '../selectWithSearch';
 class Input extends Component {
   componentDidMount() {
     let { value } = this.props;
-    console.log('Select value:', value);
     this.setState({
       value,
     });
   }
 
   onChangeProvincia = (e) => {
-    console.log(e);
     let provincia = e.option;
 
     //limpio la localidad
@@ -29,7 +27,6 @@ class Input extends Component {
   };
 
   onChangeLocalidad = (e) => {
-    console.log(e);
     let localidad = e.option;
     const { provincia } = this.state.value;
     const value = { localidad, provincia };

@@ -7,6 +7,7 @@ import { DEFAULT_ERROR } from '../../constants/a11y';
 class ErrorComponent extends Component {
   render() {
     const { error } = this.props;
+    e(error);
     let errorParsed;
     let errorStackGQL;
 

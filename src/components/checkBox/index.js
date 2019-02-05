@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 
 class Index extends Component {
   render() {
-    console.log('props');
-
-    console.log(this.props);
-    console.log('/props');
     const onChange = (e) => {
       this.props.onChange({ value: { checked: e.target.checked } });
     };

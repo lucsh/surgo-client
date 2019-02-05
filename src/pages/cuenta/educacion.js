@@ -31,7 +31,6 @@ class Educacion extends Component {
   };
 
   handleAgregar = () => {
-    console.log('handleAgregar');
     this.setState({ agregando: true });
   };
 

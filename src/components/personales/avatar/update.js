@@ -33,7 +33,7 @@ class UploadAvatar extends Component {
       this.props.updateParentState('mostrarUploadAvatar', false);
     };
 
-    const { idUser, mutation, loading, error } = this.props;
+    const { idUser, mutation, loading } = this.props;
     return (
       <ResponsiveContext.Consumer>
         {(size) => (

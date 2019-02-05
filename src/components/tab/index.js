@@ -6,7 +6,6 @@ class CustomTab extends Component {
   render() {
     const BRAND_COLOR = theme.global.colors['brand'];
     const BLACK_COLOR = '#BABABA';
-    console.log(this.props);
     const { active } = this.props;
     let styles = {
       padding: '10px 15px',

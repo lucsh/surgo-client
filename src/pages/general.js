@@ -5,7 +5,6 @@ import { GENERAL_SALUDO, GENERAL_ALERT } from '../constants/a11y';
 
 class General extends React.PureComponent {
   render() {
-    console.log('general');
     return (
       <Box alignContent="between" pad="xsmall" full="true" fill={'horizontal'}>
         <Heading level={3} margin="none" alignSelf="center">

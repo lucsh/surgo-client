@@ -21,7 +21,6 @@ class Verify extends Component {
         fetchPolicy="no-cache"
         onCompleted={(data) => {
           const { token } = data.verify;
-          console.log(data);
           if (token) {
             localStorage.setItem('token', token);
             this.setState({

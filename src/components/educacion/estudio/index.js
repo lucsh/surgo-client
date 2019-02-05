@@ -70,7 +70,6 @@ class Estudio extends Component {
               <Box
                 align="center"
                 direction={size === 'xsmall' ? 'column' : 'row'}
-
                 gap={'none'}
                 pad={'none'}
                 justify={size === 'xsmall' ? 'start' : 'end'}

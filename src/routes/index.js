@@ -31,7 +31,6 @@ class Routes extends React.Component {
     // console.log({isLoggedIn});
     i('[EVENT] ROUTER');
 
-    console.log(this.props);
     let RouterSetup;
     RouterSetup = (
       <Router history={history}>

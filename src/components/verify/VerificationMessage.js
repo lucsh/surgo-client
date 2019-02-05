@@ -14,7 +14,6 @@ class VerificationMessage extends Component {
     }
 
     if (error) {
-      console.error(error);
       return <ErrorComponent />;
     }
     return (

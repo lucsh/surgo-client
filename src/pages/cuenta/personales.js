@@ -152,7 +152,10 @@ class Personales extends Component {
                                   pad={{ vertical: 'xsmall', horizontal: 'none' }}
                                 >
                                   <Box align="start" gap="small">
-                                    <div className={'avatar-box animado'} onClick={handleAvatarClick}>
+                                    <div
+                                      className={'avatar-box animado'}
+                                      onClick={handleAvatarClick}
+                                    >
                                       <img
                                         alt="Foto de perfil"
                                         className={'avatar '}

@@ -26,7 +26,6 @@ const colors = {
   focus: '#0096d7',
 };
 
-
 const colorArray = (array, prefix) =>
   array.forEach((color, index) => {
     colors[`${prefix}-${index + 1}`] = color;

@@ -12,7 +12,6 @@ class Form extends Component {
 
   onChangeEmail = (event) => this.setState({ email: event.target.value });
   onSubmit = () => {
-    console.log('onsubmit');
     this.props
       .mutation({
         variables: { input: { email: this.state.email } },
