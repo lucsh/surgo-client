@@ -24,15 +24,15 @@ class Login extends React.Component {
   };
 
   componentDidMount() {
-    this.props.isLoggedIn && this.props.history.push({ pathname: DASHBOARD_PATH });
-    window.addEventListener('blur', () => {
-      i('[EVENT: WINDOW BLURED]');
-      this.setState({ blurred: true });
-    });
-    window.addEventListener('focus', () => {
-      i('[EVENT: WINDOW FOCUSED]');
-      this.props.isLoggedIn && this.props.history.push({ pathname: DASHBOARD_PATH });
-    });
+    // this.props.isLoggedIn && this.props.history.push({ pathname: DASHBOARD_PATH });
+    // window.addEventListener('blur', () => {
+    //   i('[EVENT: WINDOW BLURED]');
+    //   this.setState({ blurred: true });
+    // });
+    // window.addEventListener('focus', () => {
+    //   i('[EVENT: WINDOW FOCUSED]');
+    //   this.props.isLoggedIn && this.props.history.push({ pathname: DASHBOARD_PATH });
+    // });
   }
 
   updateParentState = (key, value) => {
