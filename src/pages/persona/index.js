@@ -7,6 +7,7 @@ import Personales from './personales';
 import Educacion from './educacion';
 import Direccion from './direccion';
 import Laborales from './laborales';
+import Comentarios from './comentarios';
 
 class Index extends Component {
   state = {
@@ -16,15 +17,17 @@ class Index extends Component {
   onActive = (index) => this.setState({ index });
 
   render() {
-    i('[RENDER : CUENTA]');
-    l(this.state, 'state', this);
-    l(this.props, 'props', this);
-    const { index } = this.state;
-    const { user } = this.props;
+    const user = { id: this.props.match.params.idUser };
 
-    // ToDo: el path deberia ser con ese parametro usr id
-    // ToDo: Cambiar todos los input para que solo muestre info como en los mockups
-    // ToDo: Agregar campo para dejar comentarios de los administradores
+    i('[RENDER : PERSONALES]');
+
+    const { index } = this.state;
+
+    // ToDo?: Cambiar todos los input para que solo muestre info como en los mockups
+    //      De hecho podria dejarlos para que lo editen desde acá
+    //      Por ejemplo, deciden entrevistarlo, y mientras miran los datos, los editan
+    // ToDo: Mostrar datos basicos con foto de la persona que estamos leyendo/editando arriba (en todos los casos)
+    // ToDo: Agregar tab para dejar comentarios de los administradores
     // ToDo: Agregar queries para dejar comentarios de los administradores
     // ToDo: Agregar campo para #etiquetar (o las etiquetas van en los comments?)
 
@@ -60,6 +63,11 @@ class Index extends Component {
         <Tab title="Laboral">
           <Box margin="small" pad="small" align="center">
             <Laborales user={user} />
+          </Box>
+        </Tab>
+        <Tab title="Comentarios">
+          <Box margin="small" pad="small" align="center">
+            <Comentarios user={user} />
           </Box>
         </Tab>
       </Tabs>
