@@ -6,7 +6,6 @@ import theme from '../../../utils/theme';
 
 import React, { Component } from 'react';
 import { Layer } from 'grommet';
-import { READ_ME_DATA } from '../../../pages/cuenta/constants';
 
 const BRAND_COLOR = theme.global.colors['brand'];
 
@@ -91,7 +90,7 @@ class UploadAvatar extends Component {
                       file: base64ToImage(this.state.preview),
                       idUser,
                     },
-                    refetchQueries: [{ query: READ_ME_DATA }],
+                    refetchQueries: [this.props.queryToRefetch],
                     onCompleted: cancelar(),
                   });
                 }}

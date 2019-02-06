@@ -50,7 +50,13 @@ class Routes extends React.Component {
 
           <AuthRoute isLoggedIn={isLoggedIn} path={DASHBOARD_PATH} component={General} />
           <AuthRoute isLoggedIn={isLoggedIn} path={CUENTA_PATH} component={Cuenta} user={user} />
-          <AuthRoute access={"private"} isLoggedIn={isLoggedIn} path={PERSONA_PATH} component={Persona} user={user} />
+          <AuthRoute
+            access={'private'}
+            isLoggedIn={isLoggedIn}
+            path={PERSONA_PATH}
+            component={Persona}
+            user={user}
+          />
 
           <Route exact component={NoMatch} />
         </Switch>
