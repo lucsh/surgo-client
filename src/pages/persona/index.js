@@ -22,12 +22,11 @@ class Index extends Component {
     const { index } = this.state;
     const { user } = this.props;
 
-    // ToDo: Cambiar queries, necesito que todas acepten el parametro de usr,
-    // ToDo: de la misma manera, el path deberia ser con ese parametro
+    // ToDo: el path deberia ser con ese parametro usr id
     // ToDo: Cambiar todos los input para que solo muestre info como en los mockups
     // ToDo: Agregar campo para dejar comentarios de los administradores
+    // ToDo: Agregar queries para dejar comentarios de los administradores
     // ToDo: Agregar campo para #etiquetar (o las etiquetas van en los comments?)
-
 
     return (
       <Tabs

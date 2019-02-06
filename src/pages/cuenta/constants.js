@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
-export const READ_ME_DATA = gql`
-  query {
-    meData {
+export const READ_PERSONAL_DATA = gql`
+  query personalData($idUser: String!) {
+    personalData(idUser: $idUser) {
       idUser
       nombre
       apellido
@@ -98,9 +98,9 @@ export const UPDATE_TRABAJO = gql`
   }
 `;
 
-export const UPDATE_ME = gql`
-  mutation updateMe($data: UserDataInput!, $idUser: String!) {
-    updateUserData(data: $data, idUser: $idUser)
+export const UPDATE_PERSONAL_DATA = gql`
+  mutation updatePersonalData($data: PersonalDataInput!, $idUser: String!) {
+    updatePersonalData(data: $data, idUser: $idUser)
   }
 `;
 
