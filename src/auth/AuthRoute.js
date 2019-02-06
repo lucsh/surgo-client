@@ -15,7 +15,7 @@ class AuthRoute extends React.Component {
     i(`[EVENT: AUTENTICAR / AUTORIZAR]`);
   }
 
-  safeRender(props, isLoggedIn, access, user) {
+  safeRender(props, computedMatch, isLoggedIn, access, user) {
     const { component: Component } = this.props;
     i('[SAFE RENDER]');
 
@@ -26,7 +26,7 @@ class AuthRoute extends React.Component {
         i('private');
         return <AccessDenied />;
       }
-      return <Component {...props} user={user} />;
+      return <Component {...props} match={computedMatch} user={user} />;
     } else {
       i('!user');
       return <Redirect to={{ pathname: LOGIN_PATH }} />;
@@ -34,9 +34,10 @@ class AuthRoute extends React.Component {
   }
 
   render() {
-    const { isLoggedIn, user, access } = this.props;
-
-    return <Route render={(props) => this.safeRender(props, isLoggedIn, access, user)} />;
+    const { isLoggedIn, user, access, computedMatch } = this.props;
+    return (
+      <Route render={(props) => this.safeRender(props, computedMatch, isLoggedIn, access, user)} />
+    );
   }
 }
 
