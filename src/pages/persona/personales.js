@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { READ_ME_DATA, UPDATE_AVATAR, UPDATE_ME } from './constants';
+import { READ_PERSONAL_DATA, UPDATE_AVATAR, UPDATE_PERSONAL_DATA } from './constants';
 import { Box, Form, FormField, ResponsiveContext } from 'grommet/es6';
 import { Query, Mutation } from 'react-apollo';
 import { Image } from 'grommet-icons';
@@ -65,10 +65,15 @@ class Personales extends Component {
 
         tieneLicencia: value.tieneLicencia.checked,
       };
-      editMe({ variables: { data, idUser }, refetchQueries: [{ query: READ_ME_DATA }] });
+      editMe({
+        variables: { data, idUser },
+        refetchQueries: [{ query: READ_PERSONAL_DATA, variables: { idUser } }],
+      });
     };
 
     const { mostrarUploadAvatar } = this.state;
+    const idUser = this.props.user.id;
+
     return (
       <Box align="center" alignSelf="center" direction="row-responsive" animation="slideLeft">
         <ResponsiveContext.Consumer>
@@ -85,15 +90,15 @@ class Personales extends Component {
                 break;
             }
             return (
-              <Query query={READ_ME_DATA}>
+              <Query query={READ_PERSONAL_DATA} variables={{ idUser }}>
                 {(respuesta) => {
                   if (respuesta.loading) return <p>Cargando...</p>;
-                  if (respuesta.data && respuesta.data.meData === null) {
+                  if (respuesta.data && respuesta.data.personalData === null) {
                     return <ErrorComponent />;
                   }
                   if (!respuesta.error) {
-                    l(respuesta.data.meData, 'me data');
-                    const { meData } = respuesta.data;
+                    l(respuesta.data, 'me data');
+                    const { personalData } = respuesta.data;
                     return (
                       <Fragment>
                         {mostrarUploadAvatar && (
@@ -101,16 +106,20 @@ class Personales extends Component {
                             {(uploadFile, { loading, error }) => (
                               <UpdateAvatar
                                 updateParentState={this.updateParentState}
-                                idUser={meData.idUser}
+                                idUser={personalData.idUser}
                                 mutation={uploadFile}
                                 loading={loading}
                                 error={error}
-                                avatar={meData.avatar}
+                                queryToRefetch={{
+                                  query: READ_PERSONAL_DATA,
+                                  variables: { idUser },
+                                }}
+                                avatar={personalData.avatar}
                               />
                             )}
                           </Mutation>
                         )}
-                        <Mutation mutation={UPDATE_ME}>
+                        <Mutation mutation={UPDATE_PERSONAL_DATA}>
                           {(editMe, { loading, error }) => (
                             <Box
                               align="center"
@@ -120,29 +129,31 @@ class Personales extends Component {
                               justify="center"
                             >
                               <Form
-                                onSubmit={({ value }) => saveEdit(value, editMe, meData.idUser)}
+                                onSubmit={({ value }) =>
+                                  saveEdit(value, editMe, personalData.idUser)
+                                }
                                 value={{
-                                  apellido: meData.apellido,
-                                  nombre: meData.nombre,
+                                  apellido: personalData.apellido,
+                                  nombre: personalData.nombre,
                                   dniCuil: {
-                                    dni: meData.dni,
-                                    cuil: meData.cuil,
+                                    dni: personalData.dni,
+                                    cuil: personalData.cuil,
                                   },
 
-                                  estadoCivil: meData.estadoCivil,
-                                  hijos: meData.hijos,
+                                  estadoCivil: personalData.estadoCivil,
+                                  hijos: personalData.hijos,
 
-                                  email: meData.email,
-                                  educacionMax: meData.educacionMax,
-                                  fechaNacimiento: meData.fechaNacimiento,
+                                  email: personalData.email,
+                                  educacionMax: personalData.educacionMax,
+                                  fechaNacimiento: personalData.fechaNacimiento,
                                   genero: {
-                                    select: meData.genero,
-                                    otro: meData.generoMas,
+                                    select: personalData.genero,
+                                    otro: personalData.generoMas,
                                   },
-                                  paisOrigen: meData.paisOrigen,
-                                  profesion: meData.profesion,
-                                  telefono: meData.telefono,
-                                  tieneLicencia: { checked: meData.tieneLicencia },
+                                  paisOrigen: personalData.paisOrigen,
+                                  profesion: personalData.profesion,
+                                  telefono: personalData.telefono,
+                                  tieneLicencia: { checked: personalData.tieneLicencia },
                                 }}
                               >
                                 <Box
@@ -159,7 +170,7 @@ class Personales extends Component {
                                       <img
                                         alt="Foto de perfil"
                                         className={'avatar '}
-                                        src={meData.avatar}
+                                        src={personalData.avatar}
                                       />
                                       <div className="overlay animado">
                                         <Image color={BRAND_COLOR} size="large" />
@@ -312,7 +323,7 @@ class Personales extends Component {
                                     size={'small'}
                                     label="EMAIL"
                                     name="email"
-                                    value={meData.email} // not editable
+                                    value={personalData.email} // not editable
                                     required
                                     style={{ borderBottom: 'solid 1px #888888' }}
                                     component={EmailMaskedInput}
