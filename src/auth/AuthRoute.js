@@ -18,20 +18,17 @@ class AuthRoute extends React.Component {
   safeRender(props, isLoggedIn, access, user) {
     const { component: Component } = this.props;
     i('[SAFE RENDER]');
-    i(`isLoggedIn: ${isLoggedIn}`);
-    i(`user: ${user}`);
-    const isAdmin = user.roles.includes('superuser') || user.roles.includes('admin');
-    if (access === 'private' && !isAdmin) {
-      i('access');
-      i('private');
 
-      return <AccessDenied />;
-    }
-    if (isLoggedIn) {
-      i('isLoggedIn');
+    if (user) {
+      const isAdmin = user.roles.includes('superuser') || user.roles.includes('admin');
+      if (access === 'private' && !isAdmin) {
+        i('access');
+        i('private');
+        return <AccessDenied />;
+      }
       return <Component {...props} user={user} />;
     } else {
-      i('!isLoggedIn');
+      i('!user');
       return <Redirect to={{ pathname: LOGIN_PATH }} />;
     }
   }
