@@ -21,7 +21,8 @@ class UsuarioDropMenu extends Component {
 
   render() {
     const { user } = this.props;
-    let label = ANONIMO;
+    let nombre = ANONIMO;
+    let roles = 'usuario';
     let itemsMenu = [
       {
         label: SALIR,
@@ -39,12 +40,23 @@ class UsuarioDropMenu extends Component {
       },
     ];
     if (user && user.email) {
-      label = user.email;
+      nombre = user.email;
     }
 
     if (user && user.nombre) {
-      label = user.nombre;
+      nombre = user.nombre;
     }
+
+    if (user && user.roles) {
+      roles = user.roles.join(', ');
+    }
+
+    const label = (
+      <div>
+        {nombre} <br />
+        <small> {roles}</small>
+      </div>
+    );
 
     return <Menu align="center" size={'12px'} label={label} items={itemsMenu} />;
   }
