@@ -3,14 +3,14 @@ import { READ_HITOS, CREATE_HITO, DELETE_HITO } from './constants';
 import { Box, Form, FormField } from 'grommet/es6';
 import { Query, Mutation } from 'react-apollo';
 
-import { i, l } from '../../utils/log';
+import { i } from '../../utils/log';
 
 import ErrorComponent from '../../components/error';
 import TextInput from '../../components/textInput';
 import SelectProvinciaLocalidad from '../../components/selectProvinciaLocalidad';
 import LoadingButton from '../../components/loadingButton';
 
-class Personales extends Component {
+class Hitos extends Component {
   render() {
     i('[RENDER : HITOS]');
 
@@ -170,4 +170,4 @@ class Personales extends Component {
   }
 }
 
-export default Personales;
+export default Hitos;

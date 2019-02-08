@@ -7,7 +7,7 @@ import Personales from './personales';
 import Educacion from './educacion';
 import Direccion from './direccion';
 import Laborales from './laborales';
-import Comentarios from './comentarios';
+import Hitos from './hitos';
 
 class Index extends Component {
   state = {
@@ -28,6 +28,7 @@ class Index extends Component {
     //      Por ejemplo, deciden entrevistarlo, y mientras miran los datos, los editan
     // ToDo: Mostrar datos basicos con foto de la persona que estamos leyendo/editando arriba (en todos los casos)
     // ToDo: Agregar tab para dejar comentarios de los administradores
+    // ToDo: Agregar estados (queries y mutations)
     // ToDo: Agregar queries para dejar comentarios de los administradores
     // ToDo: Agregar campo para #etiquetar (o las etiquetas van en los comments?)
 
@@ -65,9 +66,9 @@ class Index extends Component {
             <Laborales user={user} />
           </Box>
         </Tab>
-        <Tab title="Comentarios">
+        <Tab title="Historial">
           <Box margin="small" pad="small" align="center">
-            <Comentarios user={user} />
+            <Hitos user={user} />
           </Box>
         </Tab>
       </Tabs>

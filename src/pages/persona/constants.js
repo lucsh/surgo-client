@@ -1,5 +1,34 @@
 import gql from 'graphql-tag';
 
+export const CREATE_HITO = gql`
+  mutation createHito($data: HitoInput!, $idUser: String!) {
+    createHito(data: $data, idUser: $idUser)
+  }
+`;
+export const READ_HITOS = gql`
+  query hitos($idUser: String!) {
+    hitos(idUser: $idUser) {
+      id
+      idUser
+      estado
+      observacion
+      by
+      at
+      comentarios {
+        id
+        comentario
+        by
+        at
+      }
+    }
+  }
+`;
+export const DELETE_HITO = gql`
+  mutation deleteHito($id: Int!, $idUser: String!) {
+    deleteHito(id: $id, idUser: $idUser)
+  }
+`;
+
 export const READ_PERSONAL_DATA = gql`
   query personalData($idUser: String!) {
     personalData(idUser: $idUser) {
@@ -25,6 +54,24 @@ export const READ_PERSONAL_DATA = gql`
   }
 `;
 
+export const UPDATE_PERSONAL_DATA = gql`
+  mutation updatePersonalData($data: PersonalDataInput!, $idUser: String!) {
+    updatePersonalData(data: $data, idUser: $idUser)
+  }
+`;
+
+export const UPDATE_AVATAR = gql`
+  mutation uploadAvatar($file: Upload!, $idUser: String!) {
+    uploadAvatar(file: $file, idUser: $idUser)
+  }
+`;
+
+export const CREATE_ESTUDIO = gql`
+  mutation createStudy($data: EstudioInput!, $idUser: String!) {
+    createStudy(data: $data, idUser: $idUser)
+  }
+`;
+
 export const READ_ESTUDIOS = gql`
   query studies($idUser: String!) {
     studies(idUser: $idUser) {
@@ -43,14 +90,9 @@ export const READ_ESTUDIOS = gql`
   }
 `;
 
-export const UPDATE_AVATAR = gql`
-  mutation uploadAvatar($file: Upload!, $idUser: String!) {
-    uploadAvatar(file: $file, idUser: $idUser)
-  }
-`;
-export const CREATE_ESTUDIO = gql`
-  mutation createStudy($data: EstudioInput!, $idUser: String!) {
-    createStudy(data: $data, idUser: $idUser)
+export const UPDATE_ESTUDIO = gql`
+  mutation updateStudy($data: EstudioInput!, $idUser: String!) {
+    updateStudy(data: $data, idUser: $idUser)
   }
 `;
 
@@ -60,11 +102,12 @@ export const DELETE_ESTUDIO = gql`
   }
 `;
 
-export const UPDATE_ESTUDIO = gql`
-  mutation updateStudy($data: EstudioInput!, $idUser: String!) {
-    updateStudy(data: $data, idUser: $idUser)
+export const CREATE_TRABAJO = gql`
+  mutation createJob($data: TrabajoInput!, $idUser: String!) {
+    createJob(data: $data, idUser: $idUser)
   }
 `;
+
 export const READ_TRABAJOS = gql`
   query jobs($idUser: String!) {
     jobs(idUser: $idUser) {
@@ -80,27 +123,15 @@ export const READ_TRABAJOS = gql`
   }
 `;
 
-export const CREATE_TRABAJO = gql`
-  mutation createJob($data: TrabajoInput!, $idUser: String!) {
-    createJob(data: $data, idUser: $idUser)
-  }
-`;
-
-export const DELETE_TRABAJO = gql`
-  mutation deleteJob($id: Int!, $idUser: String!) {
-    deleteJob(id: $id, idUser: $idUser)
-  }
-`;
-
 export const UPDATE_TRABAJO = gql`
   mutation updateJob($data: TrabajoInput!, $idUser: String!) {
     updateJob(data: $data, idUser: $idUser)
   }
 `;
 
-export const UPDATE_PERSONAL_DATA = gql`
-  mutation updatePersonalData($data: PersonalDataInput!, $idUser: String!) {
-    updatePersonalData(data: $data, idUser: $idUser)
+export const DELETE_TRABAJO = gql`
+  mutation deleteJob($id: Int!, $idUser: String!) {
+    deleteJob(id: $id, idUser: $idUser)
   }
 `;
 
@@ -123,6 +154,12 @@ export const READ_DIRECCION = gql`
   }
 `;
 
+export const UPDATE_DIRECCION = gql`
+  mutation updateAddress($data: DireccionInput!, $idUser: String!) {
+    updateAddress(data: $data, idUser: $idUser)
+  }
+`;
+
 export const LOCALIDADES = gql`
   query localidades($provincia: Int!) {
     localidades(provincia: $provincia) {
@@ -137,11 +174,5 @@ export const PROVINCIAS = gql`
       id
       nombre
     }
-  }
-`;
-
-export const UPDATE_DIRECCION = gql`
-  mutation updateAddress($data: DireccionInput!, $idUser: String!) {
-    updateAddress(data: $data, idUser: $idUser)
   }
 `;
