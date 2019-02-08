@@ -39,7 +39,7 @@
   border-radius: 50%;
 }
 
-/* Grouped Buttons*/
+/* Grouped Buttons */
 
 @media (min-width: 700px) {
   .dr-breakout-btn {
@@ -73,14 +73,27 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-image: none;
     border-radius: 4px;
     color: #fff;
-    background-color: #507281;
+    background: #507281 none;
   }
 }
 
 .btn-group {
   left: 40%;
   margin: 50px 0;
+}
+
+/* menu */
+
+.menu-user {
+  display: flex;
+}
+
+.menu-user img{
+  margin-right: 10px;
+}
+
+.menu-user div {
+  align-self: center;
 }

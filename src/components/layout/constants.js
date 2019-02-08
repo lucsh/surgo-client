@@ -6,6 +6,7 @@ export const ME_QUERY = gql`
       nombre
       email
       roles
+      thumb
     }
   }
 `;

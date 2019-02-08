@@ -52,9 +52,12 @@ class UsuarioDropMenu extends Component {
     }
 
     const label = (
-      <div>
-        {nombre} <br />
-        <small> {roles}</small>
+      <div className={'menu-user'}>
+        <img src={user.thumb} alt="" />
+        <div>
+          {nombre} <br />
+          <small> {roles}</small>
+        </div>
       </div>
     );
 
