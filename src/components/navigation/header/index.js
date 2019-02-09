@@ -25,14 +25,15 @@ class Header extends Component {
         justify="between"
         margin={{ bottom: 'xsmall' }}
         pad="none"
+        flex="grow"
       >
         <Box direction="row" align="center" pad="small">
           <Navigation />
         </Box>
 
-        <Text size={'12px'} alignSelf="center">
+        <Box flex="grow" size={'12px'} alignSelf="center" align="end">
           <DropMenu user={user} />
-        </Text>
+        </Box>
       </Box>
     );
   }

@@ -90,8 +90,8 @@
   display: flex;
 }
 
-.menu-user img{
-  margin-right: 10px;
+.menu-user div{
+  margin-left: 10px;
 }
 
 .menu-user div {
