@@ -6,20 +6,21 @@ import moment from 'moment';
 import pluralize from '../../utils/pluralize';
 import theme from '../../utils/theme';
 
-const BRAND_COLOR = theme.global.colors['brand'];
 const SECONDARY_COLOR = theme.global.colors['secondary'];
 
 class ResumenPersona extends Component {
   render() {
     const { persona } = this.props;
 
-    let desde = moment(persona.trabajoActual.desde);
-    if (desde.isValid()) {
-      desde = desde.format('Y');
-    } else {
-      desde = null;
+    let desde;
+    if (persona.trabajoActual) {
+      desde = moment(persona.trabajoActual.desde);
+      if (desde.isValid()) {
+        desde = desde.format('Y');
+      } else {
+        desde = null;
+      }
     }
-
     const hijos = pluralize(persona.hijos, 'hijo', 'hijos');
 
     return (
@@ -59,12 +60,18 @@ class ResumenPersona extends Component {
                   <Text size="14px">
                     <Anchor href={`mailto:${persona.email}`} label={persona.email} />
                   </Text>
-                  <Text margin={{ vertical: 'xsmall' }} style={{ fontSize: '18px' }}>
-                    {persona.trabajoActual.puesto}{' '}
-                    <span style={{ fontSize: '12px', color: SECONDARY_COLOR }}>
-                      {persona.trabajoActual.empresa} ({desde} - )
-                    </span>
-                  </Text>
+                  {persona.trabajoActual ? (
+                    <Text margin={{ vertical: 'xsmall' }} style={{ fontSize: '18px' }}>
+                      {persona.trabajoActual.puesto}{' '}
+                      <span style={{ fontSize: '12px', color: SECONDARY_COLOR }}>
+                        {persona.trabajoActual.empresa} ({desde} - )
+                      </span>
+                    </Text>
+                  ) : (
+                    <Text margin={{ vertical: 'xsmall' }} style={{ fontSize: '16px', fontWeight: '600', color: SECONDARY_COLOR }}>
+                      Desocupado
+                    </Text>
+                  )}
                   <Text>
                     {persona.direccion.calle} {persona.direccion.numero} -{' '}
                     {persona.direccion.localidad.nombre}, {persona.direccion.localidad.codigoPostal}
