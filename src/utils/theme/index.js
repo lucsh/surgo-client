@@ -21,9 +21,9 @@ const statusColors = {
 
 const colors = {
   brand: '#E86137',
-  secondary: '#5596e6',
-  black: '#152935',
-  focus: '#0096d7',
+  secondary: '#FE855F',
+  black: '#181718',
+  focus: '#E89837',
 };
 
 const colorArray = (array, prefix) =>
@@ -65,6 +65,13 @@ const surgo = deepFreeze({
     xlarge: 16,
     xxlarge: 18,
   },
+  heading:{
+    extend: css`
+      color: ${colors['brand']};
+    `,
+    weight: 400,
+  },
+
   textInput: {
     extend: css`
       font-weight: 200;

@@ -1,5 +1,35 @@
 import gql from 'graphql-tag';
 
+export const READ_RESUMEN_PERSONA = gql`
+  query resumen($idUser: String!) {
+    resumen(idUser: $idUser) {
+      nombre
+      apellido
+      estadoCivil
+      hijos
+      email
+      paisOrigen
+      edad
+      educacionMax
+      telefono
+      trabajoActual {
+        puesto
+        empresa
+        desde
+        hasta
+      }
+      direccion {
+        calle
+        numero
+        localidad {
+          nombre
+          codigoPostal
+        }
+      }
+    }
+  }
+`;
+
 export const CREATE_HITO = gql`
   mutation createHito($data: HitoInput!, $idUser: String!) {
     createHito(data: $data, idUser: $idUser)

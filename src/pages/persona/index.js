@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
-import { Box, Tabs } from 'grommet/es6';
+import React, { Component, Fragment } from 'react';
+import { Box, Grid, Tabs } from 'grommet/es6';
 import Tab from '../../components/tab';
 import { i, l } from '../../utils/log';
+import { READ_RESUMEN_PERSONA } from './constants';
 
+import ResumenPersona from '../../components/resumenPersona';
 import Personales from './personales';
 import Educacion from './educacion';
 import Direccion from './direccion';
 import Laborales from './laborales';
 import Hitos from './hitos';
+import ErrorComponent from '../../components/error';
+import { Query } from 'react-apollo';
 
 class Index extends Component {
   state = {
@@ -23,55 +27,81 @@ class Index extends Component {
 
     const { index } = this.state;
 
-    // ToDo?: Cambiar todos los input para que solo muestre info como en los mockups
-    //      De hecho podria dejarlos para que lo editen desde acá
-    //      Por ejemplo, deciden entrevistarlo, y mientras miran los datos, los editan
-    // ToDo: Mostrar datos basicos con foto de la persona que estamos leyendo/editando arriba (en todos los casos)
     // ToDo: Agregar tab para dejar comentarios de los administradores
     // ToDo: Agregar estados (queries y mutations)
     // ToDo: Agregar queries para dejar comentarios de los administradores
     // ToDo: Agregar campo para #etiquetar (o las etiquetas van en los comments?)
 
     return (
-      <Tabs
-        align="center"
-        justify={'center'}
-        flex={'grow'}
-        activeIndex={index}
-        onActive={this.onActive}
+      <Grid
+        alignSelf="center"
+        rows={['auto', 'medium']}
+        columns={['auto', 'flex']}
+        gap="small"
+        fill="horizontal"
+        areas={[
+          { name: 'resumen', start: [0, 0], end: [1, 0] },
+          { name: 'main', start: [0, 1], end: [1, 1] },
+        ]}
       >
-        <Tab title="Datos Personales">
-          <Box
-            margin="small"
-            pad="small"
+        <Box gridArea="resumen" direction="row-responsive">
+          <Query query={READ_RESUMEN_PERSONA} variables={{ idUser: user.id }}>
+            {(respuesta) => {
+              if (respuesta.loading) return <p>Cargando...</p>;
+              if (respuesta.data && respuesta.data.resumen === null) {
+                return <ErrorComponent />;
+              }
+              if (!respuesta.error) {
+                l(respuesta.data, 'RESUMEN PERSONA');
+                const persona = respuesta.data.resumen;
+
+                return <ResumenPersona persona={persona} mostrarAvatar={index !== 0} />;
+              }
+            }}
+          </Query>
+        </Box>
+        <Box gridArea="main">
+          <Tabs
             align="center"
-            responsive={true}
-            direction={'row-responsive'}
+            justify={'center'}
+            flex={'grow'}
+            activeIndex={index}
+            onActive={this.onActive}
           >
-            <Personales user={user} />
-          </Box>
-        </Tab>
-        <Tab title="Dirección">
-          <Box margin="small" pad="small" align="center">
-            <Direccion user={user} />
-          </Box>
-        </Tab>
-        <Tab title="Educación">
-          <Box margin="small" pad="small" align="center">
-            <Educacion user={user} />
-          </Box>
-        </Tab>
-        <Tab title="Laboral">
-          <Box margin="small" pad="small" align="center">
-            <Laborales user={user} />
-          </Box>
-        </Tab>
-        <Tab title="Historial">
-          <Box margin="small" pad="small" align="center">
-            <Hitos user={user} />
-          </Box>
-        </Tab>
-      </Tabs>
+            <Tab title="Datos Personales">
+              <Box
+                margin="small"
+                pad="small"
+                align="center"
+                responsive={true}
+                direction={'row-responsive'}
+              >
+                <Personales user={user} />
+              </Box>
+            </Tab>
+            <Tab title="Dirección">
+              <Box margin="small" pad="small" align="center">
+                <Direccion user={user} />
+              </Box>
+            </Tab>
+            <Tab title="Educación">
+              <Box margin="small" pad="small" align="center">
+                <Educacion user={user} />
+              </Box>
+            </Tab>
+            <Tab title="Laboral">
+              <Box margin="small" pad="small" align="center">
+                <Laborales user={user} />
+              </Box>
+            </Tab>
+            <Tab title="Historial">
+              <Box margin="small" pad="small" align="center">
+                <Hitos user={user} />
+              </Box>
+            </Tab>
+          </Tabs>
+        </Box>
+      </Grid>
     );
   }
 }
