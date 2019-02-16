@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Box, Grid, Tabs } from 'grommet/es6';
 import Tab from '../../components/tab';
 import { i, l } from '../../utils/log';
@@ -26,11 +26,6 @@ class Index extends Component {
     i('[RENDER : PERSONALES]');
 
     const { index } = this.state;
-
-    // ToDo: Agregar tab para dejar comentarios de los administradores
-    // ToDo: Agregar estados (queries y mutations)
-    // ToDo: Agregar queries para dejar comentarios de los administradores
-    // ToDo: Agregar campo para #etiquetar (o las etiquetas van en los comments?)
 
     return (
       <Grid
