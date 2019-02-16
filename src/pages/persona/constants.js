@@ -31,31 +31,39 @@ export const READ_RESUMEN_PERSONA = gql`
 `;
 
 export const CREATE_HITO = gql`
-  mutation createHito($data: HitoInput!, $idUser: String!) {
-    createHito(data: $data, idUser: $idUser)
+  mutation createMilestone($data: MilestoneInput!, $idUser: String!) {
+    createMilestone(data: $data, idUser: $idUser)
   }
 `;
 export const READ_HITOS = gql`
-  query hitos($idUser: String!) {
-    hitos(idUser: $idUser) {
+  query milestones($idUser: String!) {
+      milestones(idUser: $idUser) {
       id
-      idUser
       estado
-      observacion
-      by
-      at
+      createdBy
+      createdAt
       comentarios {
         id
         comentario
-        by
-        at
+        createdBy
+        createdAt
       }
     }
   }
 `;
 export const DELETE_HITO = gql`
-  mutation deleteHito($id: Int!, $idUser: String!) {
-    deleteHito(id: $id, idUser: $idUser)
+  mutation deleteMilestone($id: Int!, $idUser: String!) {
+    deleteMilestone(id: $id, idUser: $idUser)
+  }
+`;
+export const CREATE_COMENTARIO = gql`
+  mutation createCommnent($data: CommentInput!, $idUser: String!) {
+    createCommnent(data: $data, idUser: $idUser)
+  }
+`;
+export const DELETE_COMENTARIO = gql`
+  mutation deleteCommnent($id: Int!, $idUser: String!) {
+    deleteCommnent(id: $id, idUser: $idUser)
   }
 `;
 

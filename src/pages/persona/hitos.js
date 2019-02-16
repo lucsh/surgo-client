@@ -1,29 +1,38 @@
 import React, { Component, Fragment } from 'react';
-import { READ_HITOS, CREATE_HITO, DELETE_HITO } from './constants';
+import {
+  READ_HITOS,
+  CREATE_HITO,
+  DELETE_HITO,
+  CREATE_COMENTARIO,
+  DELETE_COMENTARIO,
+} from './constants';
 import { Box, Form, FormField } from 'grommet/es6';
 import { Query, Mutation } from 'react-apollo';
 
 import { i } from '../../utils/log';
 
 import ErrorComponent from '../../components/error';
-import TextInput from '../../components/textInput';
-import SelectProvinciaLocalidad from '../../components/selectProvinciaLocalidad';
-import LoadingButton from '../../components/loadingButton';
+import GroupedButtonsSelect from '../../components/groupedButtonsSelect';
+import SmallButton from '../../components/smallButton';
+import TextArea from '../../components/hitos/textAreaComentario';
+import Hito from '../../components/hitos/hito';
 
 class Hitos extends Component {
   render() {
     i('[RENDER : HITOS]');
 
     const saveHito = (value, createHito, idUser) => {
-      const hito = {
-        observacion: value.observacion,
+      const data = {
+        comentario: value.estado,
         estado: value.estado,
       };
       createHito({
-        variables: { hito, idUser },
+        variables: { data, idUser },
         refetchQueries: [{ query: READ_HITOS, variables: { idUser } }],
       });
     };
+
+    // TODO: revisar
 
     const eliminar = (value, mutation) => {
       mutation({
@@ -38,51 +47,36 @@ class Hitos extends Component {
         <Query query={READ_HITOS} variables={{ idUser }} skip={!idUser}>
           {(respuesta) => {
             if (respuesta.loading) return <p>Cargando...</p>;
-            if (respuesta.error || (respuesta.data && respuesta.data.hitos === null)) {
+            if (respuesta.error || (respuesta.data && respuesta.data.milestones === null)) {
               return <ErrorComponent />;
             }
             if (!respuesta.error) {
-              console.log(
-                '%c < respuesta.data.hitos > ',
-                'background: #181718; color: #white; line-height:110%',
-              );
-              console.log(respuesta.data.hitos);
-              console.log(
-                '%c < respuesta.data.hitos /> ',
-                'background: #181718; color: #white; line-height:110%',
-              );
+              console.log(' < respuesta > ');
+              console.log(respuesta);
+              console.log(' < respuesta /> ');
 
-              const { hitos } = respuesta.data;
+              const { milestones } = respuesta.data;
 
               return (
                 <Fragment>
-                  {hitos.map((hito) => (
+                  {milestones.map((hito) => (
                     <Mutation key={hito.id} mutation={DELETE_HITO}>
-                      {/*TODO agregar componente "hito" similar a estudio*/}
-                      {(deleteHito, { loading, error }) => <div />}
+                      {(deleteHito, { loading, error }) => (
+                        <Hito hito={hito} loading={loading} error={error} mutation={deleteHito} />
+                      )}
                     </Mutation>
                   ))}
 
                   <Mutation mutation={CREATE_HITO}>
-                    {(createHito, { loading, error }) => (
+                    {(createMilestone, { loading, error }) => (
                       <Box align="start" direction={'row-responsive'} gap={'large'} pad={'large'}>
                         <Form
-                          onSubmit={({ value }) => saveHito(value, createHito, this.props.user.id)}
+                          onSubmit={({ value }) =>
+                            saveHito(value, createMilestone, this.props.user.id)
+                          }
                           value={{
-                            calle: hitos.calle,
-                            numero: hitos.numero,
-                            observaciones: hitos.observaciones,
-                            provinciaLocalidad: {
-                              localidad: {
-                                id: hitos.localidad.id,
-                                nombre: hitos.localidad.nombre,
-                                codigoPostal: hitos.localidad.codigoPostal,
-                              },
-                              provincia: {
-                                id: hitos.provincia.id,
-                                nombre: hitos.provincia.nombre,
-                              },
-                            },
+                            estado: '',
+                            comentario: '',
                           }}
                         >
                           <Box
@@ -92,68 +86,41 @@ class Hitos extends Component {
                             pad={{ vertical: 'xsmall' }}
                           >
                             <FormField
-                              label="CALLE"
-                              name="calle"
-                              required
-                              validate={{ regexp: /^[a-z]/i }}
-                              style={{ borderBottom: 'solid 1px #888888' }}
-                              component={TextInput}
-                            />
-                            <FormField
                               size={'small'}
-                              label="NÚMERO"
-                              name="numero"
+                              label="NUEVO HITO"
+                              name="estado"
+                              options={['Entrevistado', 'Calificado']}
                               required
-                              numeric
-                              validate={{ regexp: /^[0-9]/i }}
-                              style={{ borderBottom: 'solid 1px #888888' }}
-                              component={TextInput}
+                              component={GroupedButtonsSelect}
+                              icon
+                              plain
                             />
                           </Box>
                           <Box
                             align="start"
-                            fill="horizontal"
                             direction={'row-responsive'}
                             gap={'large'}
                             pad={{ vertical: 'xsmall' }}
                           >
                             <FormField
-                              fill="horizontal"
-                              label="OBSERVACIONES"
-                              name="observaciones"
+                              label="DETALLE"
+                              name="detalle"
+                              required
+                              width={'medium'}
                               style={{ borderBottom: 'solid 1px #888888' }}
-                              placeholder={'Sin Observaciones'}
-                              component={TextInput}
+                              placeholder="Comentarios, #etiquetas"
+                              component={TextArea}
                             />
                           </Box>
-                          <Box
-                            align="start"
-                            fill="horizontal"
-                            direction={'row-responsive'}
-                            gap={'large'}
-                            pad={{ vertical: 'xsmall' }}
-                          >
-                            <FormField
-                              fill="horizontal"
-                              label="PROVINCIA Y LOCALIDAD"
-                              name="provinciaLocalidad"
-                              component={SelectProvinciaLocalidad}
+                          <Box align="end" alignSelf="end">
+                            <SmallButton
+                              type="button"
+                              label="+ Agregar"
+                              onClick={this.handleAgregar}
+                              color="brand"
                             />
                           </Box>
-                          <Box
-                            direction="row"
-                            justify="end"
-                            pad={{ vertical: 'xsmall' }}
-                            margin={{ top: 'medium', bottom: 'meddium' }}
-                          >
-                            <LoadingButton
-                              type="submit"
-                              reverse
-                              loading={loading}
-                              primary
-                              label={'Actualizar Dirección'}
-                            />
-                          </Box>
+
                           {error && <ErrorComponent error={error} />}
                         </Form>
                       </Box>
