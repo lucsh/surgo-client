@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import reactStringReplace from 'react-string-replace';
 import { Box } from 'grommet/es6/components/Box';
 import { Menu, ResponsiveContext, Text } from 'grommet/es6';
 import moment from 'moment';
 import theme from '../../utils/theme/index';
-import { More } from 'grommet-icons';
+import { Image, More } from 'grommet-icons';
 import { READ_TRABAJOS } from '../../pages/cuenta/constants';
 
-class Trabajo extends Component {
+require('moment/locale/es');
+
+class Comentario extends Component {
   render() {
     const BRAND_COLOR = theme.global.colors['brand'];
 
@@ -17,16 +20,12 @@ class Trabajo extends Component {
       });
     };
 
-    const { trabajo, editando, mutation } = this.props;
-    const desde = moment(trabajo.desde).format('Y');
-    let hasta = moment(trabajo.hasta);
-    if (hasta.isValid()) {
-      hasta = hasta.format('Y');
-    } else {
-      hasta = null;
-    }
+    const { comentario, editando, mutation } = this.props;
 
-    const elevation = editando ? 'large' : 'xsmall';
+    const createdAt = moment(comentario.createdAt).fromNow();
+
+    // ToDo cambiar el span por a con link al filtro
+
     return (
       <ResponsiveContext.Consumer>
         {(size) => (
@@ -34,90 +33,35 @@ class Trabajo extends Component {
             alignContent="start"
             justify="start"
             align="start"
-            direction={'column'}
+            direction={'row'}
             pad="medium"
             margin={{ top: '15px' }}
             width="large"
-            elevation={elevation}
           >
             <Box
+              alignContent="start"
+              justify="start"
               align="start"
-              justify="between"
-              direction={size === 'xsmall' ? 'column' : 'row'}
+              direction={'column'}
+              pad="medium"
+              margin={{ top: '15px' }}
               width="large"
-              gap={'small'}
-              pad={'none'}
             >
-              <Box direction="row">
-                <Text
-                  size={'xsmall'}
-                  weight={'normal'}
-                  margin={{ right: '5px', top: '2px' }}
-                  color={BRAND_COLOR}
-                >
-                  &#11044;{'    '}
+              <Box align="start" gap="small">
+                <img alt="Foto de perfil" className={'avatar-hito'} src={comentario.thumb} />
+              </Box>
+              <Box align="start" gap="small">
+                <Text size={'small'} weight={'bold'} pad={'small'}>
+                  {comentario.createdBy} - {createdAt}
                 </Text>
                 <Text size={'small'} weight={'bold'} pad={'small'}>
-                  {trabajo.puesto}
+                  {reactStringReplace(comentario.comentario, /(#\S+\b)/gi, (match, i) => (
+                    <span key={i} style={{ color: BRAND_COLOR }}>
+                      {match}
+                    </span>
+                  ))}
                 </Text>
               </Box>
-              <Box
-                align="start"
-                direction={size === 'xsmall' ? 'column' : 'row'}
-                gap={'none'}
-                pad={'none'}
-                justify={size === 'xsmall' ? 'start' : 'end'}
-                width={size === 'xsmall' ? 'small' : 'medium'}
-              >
-                <Text size={'xsmall'} weight={'bold'} color={'#7C8284'}>
-                  {trabajo.empresa}{' '}
-                </Text>
-                <Box
-                  align="center"
-                  direction={size === 'xsmall' ? 'column' : 'row'}
-                  gap={'xsmall'}
-                  pad={'none'}
-                >
-                  <Text size={'xsmall'} weight={300} color={'#7C8284'}>
-                    ({desde} - {hasta})
-                  </Text>
-                  <Text size={'10px'} weight={300} color={'#7C8284'}>
-                    {' '}
-                    {trabajo.duracion}
-                  </Text>
-                </Box>
-                <Menu
-                  alignSelf={'end'}
-                  size="small"
-                  icon={<More size="small" />}
-                  items={[
-                    {
-                      label: 'Editar',
-                      onClick: () => {
-                        this.props.editar(trabajo);
-                      },
-                    },
-                    {
-                      label: 'Eliminar',
-                      onClick: () => {
-                        eliminar(trabajo, mutation);
-                      },
-                    },
-                  ]}
-                />
-              </Box>
-            </Box>
-            <Box
-              style={{ borderLeft: `2px dotted ${BRAND_COLOR}` }}
-              margin={{ left: '3px' }}
-              align="start"
-              direction={'row-responsive'}
-              gap={'none'}
-              pad={'none'}
-            >
-              <Text margin={{ left: '10px', top: '5px', bottom: '10px' }} size={'12px'}>
-                {trabajo.detalle}
-              </Text>
             </Box>
           </Box>
         )}
@@ -126,4 +70,4 @@ class Trabajo extends Component {
   }
 }
 
-export default Trabajo;
+export default Comentario;

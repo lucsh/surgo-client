@@ -15,7 +15,7 @@ import { Query } from 'react-apollo';
 
 class Index extends Component {
   state = {
-    index: 0,
+    index: 4,
   };
 
   onActive = (index) => this.setState({ index });

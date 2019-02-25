@@ -37,7 +37,7 @@ export const CREATE_HITO = gql`
 `;
 export const READ_HITOS = gql`
   query milestones($idUser: String!) {
-      milestones(idUser: $idUser) {
+    milestones(idUser: $idUser) {
       id
       estado
       createdBy
@@ -47,6 +47,7 @@ export const READ_HITOS = gql`
         comentario
         createdBy
         createdAt
+        thumb
       }
     }
   }

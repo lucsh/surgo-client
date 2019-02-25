@@ -8090,6 +8090,13 @@ react-simple-auth@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-simple-auth/-/react-simple-auth-1.0.0.tgz#adc2b6858c2cb0e1638036bc6c6307f1842cfdb4"
   integrity sha512-1oMojVVtdlqnQF2A3Ou5r7+4lb/c0x6I2FeXCjtYmHLfNYTAvDf0RxMwsZ7i/bkqcQQk/QLt90jbVGIlQ2nmyg==
 
+react-string-replace@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-string-replace/-/react-string-replace-0.4.1.tgz#024c6ac0a91163ecae439a1b197d3e1660c98c0d"
+  integrity sha512-N7uIDFw1aPb2rjN/8aAfdSeBTNUAOAps3FN/bLplGM6k8YN2FYm6pXXg+/gGk3J3mDz76H+HNEwZSJGeSw9C8Q==
+  dependencies:
+    lodash "^4.17.4"
+
 react@^16.4.2:
   version "16.6.3"
   resolved "https://registry.yarnpkg.com/react/-/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
