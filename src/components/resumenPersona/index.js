@@ -68,7 +68,10 @@ class ResumenPersona extends Component {
                       </span>
                     </Text>
                   ) : (
-                    <Text margin={{ vertical: 'xsmall' }} style={{ fontSize: '16px', fontWeight: '600', color: SECONDARY_COLOR }}>
+                    <Text
+                      margin={{ vertical: 'xsmall' }}
+                      style={{ fontSize: '16px', fontWeight: '600', color: SECONDARY_COLOR }}
+                    >
                       Desocupado
                     </Text>
                   )}
