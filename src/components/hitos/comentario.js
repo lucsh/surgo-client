@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import reactStringReplace from 'react-string-replace';
 import { Box } from 'grommet/es6/components/Box';
-import { Menu, ResponsiveContext, Text } from 'grommet/es6';
+import { Button, Menu, ResponsiveContext, Text } from 'grommet/es6'
 import moment from 'moment';
 import theme from '../../utils/theme/index';
-import { Image, More } from 'grommet-icons';
-import { READ_TRABAJOS } from '../../pages/cuenta/constants';
 
 class Comentario extends Component {
   render() {
     const BRAND_COLOR = theme.global.colors['brand'];
 
-    const eliminar = (value, mutation) => {
+    const eliminar = () => {
+      console.log('< eliminar');
       mutation({
-        variables: { id: value.id, idUser: value.idUser },
-        refetchQueries: [{ query: READ_TRABAJOS, variables: { idUser: value.idUser } }],
+        variables: { id: this.props.comentario.id, idUser: this.props.idUser },
       });
+      console.log('eliminar />');
+
     };
 
     const { comentario, editando, mutation } = this.props;
@@ -35,7 +35,9 @@ class Comentario extends Component {
             direction={'row'}
             pad="none"
             width="large"
+            animation="slideDown"
           >
+
             <Box
               alignContent="start"
               justify="start"
@@ -45,6 +47,7 @@ class Comentario extends Component {
               // margin={{ top: '15px' }}
               width="large"
             >
+
               <Box align="start" pad="small" gap="medium" direction={'column'}>
                 <img alt="Foto de perfil" className={'avatar-hito'} src={comentario.thumb} />
               </Box>
@@ -63,6 +66,29 @@ class Comentario extends Component {
                     ))}
                   </Text>
                 </Box>
+              </Box>
+              <Box
+                style={{
+                  position: 'absolute',
+                  zIndex: 101,
+                  right: 0,
+                  top: 0,
+                }}
+                align="center"
+                justify="center"
+                alignSelf="end"
+              >
+                <Button
+                  onClick={eliminar}
+                  type="button"
+                  plain
+                  label="&times;"
+                  style={{
+                    padding: '18px',
+                    color: '#F04953',
+                    fontSize: '18px',
+                  }}
+                />
               </Box>
             </Box>
           </Box>

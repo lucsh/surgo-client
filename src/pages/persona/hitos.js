@@ -51,9 +51,6 @@ class Hitos extends Component {
               return <ErrorComponent />;
             }
             if (!respuesta.error) {
-              console.log(' < respuesta > ');
-              console.log(respuesta);
-              console.log(' < respuesta /> ');
 
               const { milestones } = respuesta.data;
 
@@ -61,8 +58,17 @@ class Hitos extends Component {
                 <Fragment>
                   {milestones.map((hito) => (
                     <Mutation key={hito.id} mutation={DELETE_HITO}>
-                      {(deleteHito, { loading, error }) => (
-                        <Hito hito={hito} loading={loading} error={error} mutation={deleteHito} />
+                      {(deleteHito, deleteHitoMutation) => (
+                        <Mutation key={hito.id} mutation={CREATE_COMENTARIO}>
+                          {(createComentario, createComentarioMutation) => (
+                            <Hito
+                              idUser={idUser}
+                              hito={hito}
+                              deleteHito={deleteHito}
+                              createComentario={createComentario}
+                            />
+                          )}
+                        </Mutation>
                       )}
                     </Mutation>
                   ))}

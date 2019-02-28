@@ -58,13 +58,13 @@ export const DELETE_HITO = gql`
   }
 `;
 export const CREATE_COMENTARIO = gql`
-  mutation createCommnent($data: CommentInput!, $idUser: String!) {
-    createCommnent(data: $data, idUser: $idUser)
+  mutation createComment($data: CommentInput!, $idUser: String!) {
+    createComment(data: $data, idUser: $idUser)
   }
 `;
 export const DELETE_COMENTARIO = gql`
-  mutation deleteCommnent($id: Int!, $idUser: String!) {
-    deleteCommnent(id: $id, idUser: $idUser)
+  mutation deleteComment($id: Int!, $idUser: String!) {
+      deleteComment(id: $id, idUser: $idUser)
   }
 `;
 
